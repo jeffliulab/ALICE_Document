@@ -1,4 +1,6 @@
 site_name: A.L.I.C.E. PROJECT
+site_author: Jeff Liu
+site_url: https://jeffliulab.github.io/ALICE_Document/
 
 theme:
   name: material
@@ -8,7 +10,7 @@ theme:
 
 plugins:
   - search
-  - i18n:
+  - i18n: # https://ultrabug.github.io/mkdocs-static-i18n/fr/getting-started/quick-start/
       docs_structure: suffix
       languages:
         - locale: en
