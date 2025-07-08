@@ -2,7 +2,7 @@
 
 ## V1.0 从概念出发进行系统设计
 
-### 2025年7月4日 为什么要启动这个项目
+### 25年7月4日 为什么要启动这个项目
 
 这两天在闲暇之余看了几集刀剑神域，一个我高中时看的动漫。因为我没有想到这个故事竟然后来还有后续，而这部分后续的内容，即动漫中关于Underworld的内容，深深地打动了我。与此同时，我想起了以前看过的一个实验，是斯坦福博士生Joon的一个小规模试验。两者的碰撞激发了我的兴趣，这也是ALICE项目的起源。
 
@@ -122,7 +122,7 @@ Alice作为一个动漫角色，**其很多特征都是想实现AGI必须实现�
 
 **刀剑神域在概念上启发了我，而Joon的作品则在技术上启发了我。**Joon的作品开创了一个非常有意思、非常有价值的探讨方向，我想结合两者，设立一个更大的舞台。换句话说，**我想制作的是一个包含巨大地图、诸多角色，以及人类可以潜入的一个“真实”的世界。这个世界中的每一个居民都不是硬编码的NPC，而是通过LLM进行思考并扩展记忆的实体。**
 
-### 2025年7月5日 Godot游戏引擎
+### 25年7月5日 Godot游戏引擎
 
 Download Godot, create my first Godot project.
 
@@ -130,7 +130,7 @@ Learn how to create a map, how to use tile and tilemap.
 
 ![1751911860114](image/V1_Dev_Diary/1751911860114.png){style="display:block; margin:auto; width:800px;"}
 
-### 2025年7月6日 Ollama LLM速推
+### 25年7月6日 Ollama LLM速推
 
 Learn how to create conversations.
 
@@ -138,7 +138,7 @@ Use Ollama and download `llama3.1:8b-instruct-q4_K_M` as the demo's inference mo
 
 ![1751911866303](image/V1_Dev_Diary/1751911866303.png){style="display:block; margin:auto; width:800px;"}
 
-### 2025年7月7日 两个agent的对话测试
+### 25年7月7日 两个agent的对话测试
 
 Create Resident Class and implement two characters as instances.
 
@@ -167,7 +167,7 @@ Class Resident:
         （1）移动、寻路
         （2）交互
         （3）观察
-      
+    
     def Cycle:
         这个cycle是每个居民的生物时钟，必须和世界时钟保持一致
         在世界时钟运行的时候，从T到T+1的时候，会进行一个半并发进程
@@ -316,7 +316,7 @@ Class 木匠 extends from Human
 
 可以看到，两个实例化的对象具备一定程度的对话能力。
 
-### 2025年7月8日 对话僵硬且重复的问题研究
+### 25年7月8日 对话僵硬且重复的问题研究
 
 重写代码，按照llama3.1的格式，设置了格式化的指令集。
 
@@ -351,7 +351,7 @@ class OllamaLLM:
         print("\n" + "="*20 + " LLM PROMPT (START) " + "="*20)
         print(prompt)
         print("="*20 + " LLM PROMPT (END) " + "="*23 + "\n")
-    
+  
         payload = {
             "model": self.model_name,
             "prompt": prompt,
@@ -418,11 +418,11 @@ class Resident:
         self.age = age
         self.sex = sex
         self.type = self.__class__.__name__
-    
+  
         # --- 记忆与知识 ---
         self.memory_stream: List[Dict] = []
         self.knowledge_mastery: Dict[int, bool] = {} # 只存储自己是否掌握某知识的状态
-    
+  
         # --- 外部依赖 ---
         self.brain = llm_client
         self.world_knowledge = knowledge_base # 指向全局知识库的引用
@@ -464,10 +464,10 @@ class Resident:
 
         # 2. 构建Prompt
         prompt = self._build_prompt(observation)
-    
+  
         # 3. 调用LLM进行思考和决策
         response_str = self.brain.get_response(prompt)
-    
+  
         try:
             decision = json.loads(response_str)
         except json.JSONDecodeError:
@@ -476,15 +476,15 @@ class Resident:
                 "thought": "我的思维陷入了混乱，无法形成清晰的决策。",
                 "action": {"tool_name": "do_nothing", "parameters": {}}
             }
-    
+  
         # 4. 记录思考过程
         thought = decision.get("thought", "（无有效思考）")
         self._record_memory(timestamp, "思考了", thought)
-    
+  
         # 5. 返回动作决策，交由外部执行
         action = decision.get("action", {"tool_name": "do_nothing", "parameters": {}})
         print(f"[{self.name}] Decided Action: Call tool '{action.get('tool_name')}' with params {action.get('parameters')}")
-    
+  
         return action
 
     def _build_prompt(self, observation: str) -> str:
@@ -501,9 +501,9 @@ class Human(Resident):
     """
     def __init__(self, name: str, age: int, sex: str, identity: str, concept: Dict, 
                  initial_knowledge: Dict[int, bool], llm_client: OllamaLLM, knowledge_base: KnowledgeBase):
-    
+  
         super().__init__(name, age, sex, llm_client, knowledge_base)
-    
+  
         self.identity = identity
         self.concept = concept # ego, goal, memory_abstraction
         self.knowledge_mastery = initial_knowledge # 初始化个人知识掌握情况
@@ -662,17 +662,17 @@ if __name__ == "__main__":
     for i in range(max_turns):
         turn_number = i + 1
         print(f"\n--- Turn {turn_number} ---")
-    
+  
         # 确定当前行动的角色
         # 在这个DEMO中，我们让亚当和莉莉轮流行动
         current_actor = residents_in_scene[i % len(residents_in_scene)]
-    
+  
         # 推进世界时间
         current_time = clock.tick()
-    
+  
         # 当前角色根据观察到的事件进行决策
         action_to_execute = current_actor.decide_action(current_time, current_event)
-    
+  
         # 世界执行该角色的动作，并生成新的事件
         current_event = execute_tool(current_actor, action_to_execute)
 
@@ -680,7 +680,7 @@ if __name__ == "__main__":
         if action_to_execute.get("tool_name") == "do_nothing" and i > 0:
             print("\nSimulation ends as a character chose to do nothing.")
             break
-        
+      
     print("\n=============================================")
     print("====== A.L.I.C.E. Simulation Finished ======")
     print("=============================================")
@@ -991,7 +991,7 @@ KnowledgeBase initialized with demo data.
 ==================================================
 
 --- 亚当's Turn (Action Cycle) ---
-[亚当 at T=5] New Memory Recorded: [观察到] '莉莉'对'亚当'说：'是的，谢谢您的关心，我只是想问一下，您是否能为我推荐一些新的创作灵感。'    
+[亚当 at T=5] New Memory Recorded: [观察到] '莉莉'对'亚当'说：'是的，谢谢您的关心，我只是想问一下，您是否能为我推荐一些新的创作灵感。'  
 
 ==================== LLM PROMPT (START) ====================
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
@@ -1247,3 +1247,10 @@ Reflexion框架在ReAct的基础上增加了一个自我批判和学习的层面
 ---
 
 今天的实验引出了一个略显庞大的问题，明天我会挑选一个方向，重新设计架构，看看能否让对话不再那么僵硬。我考虑明天使用外部API进行测试，用deepseek-R1进行测试，排除一下LLM能力本身的问题。如果deepseek-R1也有明显的对话僵硬问题，那么就说明我需要完全重构架构，现行记忆系统等思路也要推翻重新设计。
+
+
+### 25年7月9日 新架构设计
+
+![1752015679429](image/V1_Dev_Diary.zh/1752015679429.png){style="display:block; margin:auto; width:600px;"}
+
+待写。

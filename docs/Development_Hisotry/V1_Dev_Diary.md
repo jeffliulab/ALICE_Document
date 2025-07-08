@@ -17,26 +17,22 @@ Let's first look at Joon's experiment. In Joon's experiment, he added a Retrieve
 In this system, there are several key points:
 
 * **Memory and experience:**The agent records the moments of life through Memory Stream
-
 * **Growth and reflection:**The agent extracts trivial memories through the Retrieve mechanism
-
 * **Bottom-up design:**Each agent is not controlled by the central brain
 
 The bottom-up design in this system is very critical. Let's look at the "bottom" first. Its core elements include:
 
 * **Independent individuals:**The 25 individuals are independent of each other, and each individual has his own memory, personality, experience, etc.
-
 * **Simple behavior cycle:**Each agent has a very simple cycle in life, as shown in the figure above. This cycle is the driving force of their behavior
-
 * **Local information:**Each agent can only obtain external information through communication, and cannot directly obtain it through the God's perspective
 
 Let's look at the "upper", that is, the goal of this multi-agent system:
 
 * **The formation of social networks: **Agents are divided into extroverts and introverts when they are set
-* **Organic spread of information: **The idea of ​​"having a party" continues to spread along the social network
+* **Organic spread of information: **The idea of "having a party" continues to spread along the social network
 * **Self-coordination of group behavior: **Multiple agents finally made the decision to go to the same place at the same time without the command of a central brain, and finally facilitated a successful collective activity - a party.
 
-This experiment ends here. **The biggest highlight of this experiment is that the author Joon only implanted the idea of ​​having a party in one individual, but this idea was spread through social communication and eventually formed a very successful collective activity. This is a very surprising "emergence". **
+This experiment ends here. **The biggest highlight of this experiment is that the author Joon only implanted the idea of having a party in one individual, but this idea was spread through social communication and eventually formed a very successful collective activity. This is a very surprising "emergence". **
 
 Of course, there are also many necessary top-down designs in this system, such as the physical laws of the world, initial conditions, etc. Although these are regarded as background, the structure itself also has a great impact on bottom-up behavior. The biggest limitation is that all agents are driven by LLM as the core.
 
@@ -61,25 +57,24 @@ Therefore, we review the current LLM system structure and the setting of Alice i
 This is also the logical loop of the novel itself, which is why the military did not use the villains who are already capable of killing as the core of AI, but instead had to create Alice. Because the villains will follow whoever is stronger, it is more like an NPC setting, which is not stable in war. And **Alice has value judgment, that is, once Alice determines that the camp she is in is the camp she wants to protect, and the war she participates in is a just act to protect her own camp, then Alice will be difficult to be easily turned against. **Therefore, the Alice version of the intelligent body is more in line with the requirements of soldiers.
 
 ---
+
 **In summary, the current LLM multi-role experiment has the following problems:**
 
 * **LLM is a trained model. After inputting Prompt, the LLM model will only perform inference, and will not adjust the weight according to the pressure**
-
 * **LLM is trained once and cannot continue to learn**
 
 Why can't it be trained continuously?
 
 * **Currently, the architecture of neural network models is basically still Transformer. **During training, backpropagation algorithms are used for training. Once trained, the input information can only be used as context input to call inference. The benefits of inference are extremely low cost, extremely fast process, and excellent application effect.
-
 * **Catastrophic Forgetting:**When learning new knowledge, neural networks tend to overwrite and destroy old knowledge. In other words, if the weights are adjusted when talking to people, the basic knowledge of physics and history that has been learned with great difficulty may be contaminated and overwritten by the content of the conversation, resulting in highly unstable models.
-
 * **Huge computing cost:**The training process of adjusting weights is very expensive. If it is started once for each conversation, it cannot be supported by energy.
-* **Security and data pollution: **Malicious users can poison and pollute the AI ​​model, causing it to learn dirty words, hate speech, etc. Therefore, models open to the public must freeze weights.
+* **Security and data pollution: **Malicious users can poison and pollute the AI model, causing it to learn dirty words, hate speech, etc. Therefore, models open to the public must freeze weights.
 * **Pre-training is too slow: **Inference is fast, but training and adjusting parameter weights are very slow. If adjustments are made in real time during a conversation, the conversation will not be able to proceed.
 
-Why is the current solution unsustainable? This is to quote Sutton's The Bitter Lesson: **Any attempt to modify the AI ​​model in a human way of thinking will be disastrous in the long run. **In other words, RAG mode, external memory, etc. are not the real growth of thinking ability. As long as the weights of the neural network are frozen, any growth is unrealistic, which is why Sutton is very pessimistic about HFRL. OpenAI uses a lot of HFRL because the goal of ChatGPT is to efficiently answer questions, program, work, etc., and the intelligence that Sutton pursues is a real way to gain wisdom through learning, similar to Alice. **Sutton believes that no one knows everything when they are born, and humans can learn quickly through interaction. Wisdom itself must be able to reflect this, that is, learning through interaction. **
+Why is the current solution unsustainable? This is to quote Sutton's The Bitter Lesson: **Any attempt to modify the AI model in a human way of thinking will be disastrous in the long run. **In other words, RAG mode, external memory, etc. are not the real growth of thinking ability. As long as the weights of the neural network are frozen, any growth is unrealistic, which is why Sutton is very pessimistic about HFRL. OpenAI uses a lot of HFRL because the goal of ChatGPT is to efficiently answer questions, program, work, etc., and the intelligence that Sutton pursues is a real way to gain wisdom through learning, similar to Alice. **Sutton believes that no one knows everything when they are born, and humans can learn quickly through interaction. Wisdom itself must be able to reflect this, that is, learning through interaction. **
 
 ---
+
 **Can Continual Learning achieve AGI? **
 
 Currently, the world's top AI laboratories and universities are actively conducting research on Continual Learning. Although this direction is still very laboratory-based, their research is undoubtedly an important path to creating a truly intelligent intelligent entity like Alice.
@@ -89,13 +84,12 @@ Currently, the world's top AI laboratories and universities are actively conduct
 As an anime character, Alice has many features that must be achieved to achieve AGI:**
 
 * The neural network is not frozen, but can learn and grow through real-time interaction, which can reflect **"growth ability"**
-
 * For new knowledge in the interaction, whether to choose to overwrite the old weights and establish new weights, which can reflect **"understanding ability"**
-
-* **Solve the alignment problem: **How ​​to establish a core value, that is, Alice in Sword Art Online, who stands on the side of human morality and objective rational justice, and will not blindly follow the leader just because he is a villain. This may be the most difficult or controversial aspect to solve, because humans themselves cannot solve the alignment problem, so violence, crime, deception, brainwashing and other things happen.
+* **Solve the alignment problem: **How to establish a core value, that is, Alice in Sword Art Online, who stands on the side of human morality and objective rational justice, and will not blindly follow the leader just because he is a villain. This may be the most difficult or controversial aspect to solve, because humans themselves cannot solve the alignment problem, so violence, crime, deception, brainwashing and other things happen.
 * **The emergence of intrinsic motivation: not only can external dialogue or interaction change one's own neural network, but also through self-reflection and thinking, one can change one's behavior**
 * World model, this does not need to be elaborated
 * **Stability: It will not be easily polluted. It will not collapse easily. **
+
 ---
 
 Finally, let's take a look at some of the most interesting parts of [Joon Sung Park&#39;s generative agent experiment](https://www.youtube.com/watch?v=XY5Wncq5vAE):
@@ -126,7 +120,7 @@ In summary, Joon's experiment designed a very sophisticated and clever mechanism
 
 **Sword Art Online inspired me conceptually, while Joon's work inspired me technically. **Joon's work has opened up a very interesting and valuable direction of discussion, and I want to combine the two and set up a larger stage. In other words, **I want to make a "real" world with a huge map, many characters, and humans can dive into. Every resident in this world is not a hard-coded NPC, but an entity that thinks and expands memory through LLM. **
 
-### June 5, 2025 Godot Game Engine
+### July 5, 2025 Godot Game Engine
 
 Download Godot, create my first Godot project.
 
@@ -134,7 +128,7 @@ Learn how to create a map, how to use tile and tilemap.
 
 ![1751911860114](image/V1_Dev_Diary/1751911860114.png){style="display:block; margin:auto; width:800px;"}
 
-### June 6, 2025 Ollama LLM Quick Inference
+### July 6, 2025 Ollama LLM Quick Inference
 
 Learn how to create conversations.
 
@@ -142,7 +136,7 @@ Use Ollama and download `llama3.1:8b-instruct-q4_K_M` as the demo's inference mo
 
 ![1751911866303](image/V1_Dev_Diary/1751911866303.png){style="display:block; margin:auto; width:800px;"}
 
-### June 7, 2025 Dialogue test between two agents
+### July 7, 2025 Dialogue test between two agents
 
 Create Resident Class and implement two characters as instances.
 
@@ -316,7 +310,6 @@ Class Carpenter extends Human:
 # Specific implementations will be added after the core resident abilities are tested and finalized.
 ```
 
-
 The Python code converted from the pseudocode can be found in test_scripts/V1/test4, and the generated results are as follows:
 
 ![1751911876193](image/V1_Dev_Diary/1751911876193.png){style="display:block; margin:auto; width:500px;"}
@@ -341,7 +334,7 @@ Adam (Priest): Ms. Lily, your art not only allows people to experience beauty bu
 
 It can be seen that the two instantiated objects have a certain degree of conversational capabilities.
 
-### June 8, 2025 Study on the problem of rigid and repetitive dialogue
+### July 8, 2025 Study on the problem of rigid and repetitive dialogue
 
 Rewrite the code, set the formatted instruction set according to the format of llama3.1.
 
@@ -376,7 +369,7 @@ class OllamaLLM:
         print("\n" + "="*20 + " LLM PROMPT (START) " + "="*20)
         print(prompt)
         print("="*20 + " LLM PROMPT (END) " + "="*23 + "\n")
-    
+  
         payload = {
             "model": self.model_name,
             "prompt": prompt,
@@ -443,11 +436,11 @@ class Resident:
         self.age = age
         self.sex = sex
         self.type = self.__class__.__name__
-    
+  
         # --- Memory and Knowledge ---
         self.memory_stream: List[Dict] = []
         self.knowledge_mastery: Dict[int, bool] = {} # Only stores the state of whether the resident has mastered a piece of knowledge
-    
+  
         # --- External Dependencies ---
         self.brain = llm_client
         self.world_knowledge = knowledge_base # Reference to the global knowledge base
@@ -489,10 +482,10 @@ class Resident:
 
         # 2. Build the Prompt
         prompt = self._build_prompt(observation)
-    
+  
         # 3. Call the LLM for thinking and decision-making
         response_str = self.brain.get_response(prompt)
-    
+  
         try:
             decision = json.loads(response_str)
         except json.JSONDecodeError:
@@ -501,15 +494,15 @@ class Resident:
                 "thought": "My thinking has fallen into chaos, I cannot form a clear decision.",
                 "action": {"tool_name": "do_nothing", "parameters": {}}
             }
-    
+  
         # 4. Record the thought process
         thought = decision.get("thought", "(No valid thought)")
         self._record_memory(timestamp, "thought", thought)
-    
+  
         # 5. Return the action decision for external execution
         action = decision.get("action", {"tool_name": "do_nothing", "parameters": {}})
         print(f"[{self.name}] Decided Action: Call tool '{action.get('tool_name')}' with params {action.get('parameters')}")
-    
+  
         return action
 
     def _build_prompt(self, observation: str) -> str:
@@ -526,9 +519,9 @@ class Human(Resident):
     """
     def __init__(self, name: str, age: int, sex: str, identity: str, concept: Dict, 
                  initial_knowledge: Dict[int, bool], llm_client: OllamaLLM, knowledge_base: KnowledgeBase):
-    
+  
         super().__init__(name, age, sex, llm_client, knowledge_base)
-    
+  
         self.identity = identity
         self.concept = concept # ego, goal, memory_abstraction
         self.knowledge_mastery = initial_knowledge # Initialize personal knowledge mastery status
@@ -688,17 +681,17 @@ if __name__ == "__main__":
     for i in range(max_turns):
         turn_number = i + 1
         print(f"\n--- Turn {turn_number} ---")
-    
+  
         # Determine the current acting character
         # In this DEMO, we have Adam and Lily take turns
         current_actor = residents_in_scene[i % len(residents_in_scene)]
-    
+  
         # Advance the world time
         current_time = clock.tick()
-    
+  
         # The current character makes a decision based on the observed event
         action_to_execute = current_actor.decide_action(current_time, current_event)
-    
+  
         # The world executes the character's action and generates a new event
         current_event = execute_tool(current_actor, action_to_execute)
 
@@ -706,13 +699,14 @@ if __name__ == "__main__":
         if action_to_execute.get("tool_name") == "do_nothing" and i > 0:
             print("\nSimulation ends as a character chose to do nothing.")
             break
-        
+      
     print("\n=============================================")
     print("====== A.L.I.C.E. Simulation Finished ======")
     print("=============================================")
 ```
 
 Output:
+
 ```powershell
 WorldClock initialized. Time starts at T=0.
 KnowledgeBase initialized with demo data.
@@ -1223,7 +1217,7 @@ Based on all the information above, generate your inner thought and the next too
 
 [Adam at T=7] New Memory Recorded: [thought] Her words are too smooth. I must be careful not to reveal my true intentions.
 [Adam] Decided Action: Call tool 'speak' with params {'target_name': 'Lily', 'content': "Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?"}
-[EXECUTOR] Executed speak for Adam. -> 'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'      
+[EXECUTOR] Executed speak for Adam. -> 'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'    
 
 --- Turn 8 ---
 
@@ -1304,7 +1298,7 @@ Based on all the information above, generate your inner thought and the next too
 ==================================================
 
 --- Adam's Turn (Action Cycle) ---
-[Adam at T=9] New Memory Recorded: [observed] 'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'       
+[Adam at T=9] New Memory Recorded: [observed] 'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'     
 
 ==================== LLM PROMPT (START) ====================
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
@@ -1483,9 +1477,7 @@ The ReAct (Reasoning and Acting) framework enables LLM to generate reasoning tra
 The Reflexion Framework adds a layer of self-critique and learning to ReAct, aiming to enhance the agent through “verbal reinforcement”. It consists of three core models:
 
 1. **Actor**: Usually a ReAct agent that performs tasks and generates action trajectories.
-
 2. **Evaluator**: Scores the actor’s outputs to determine their success or quality.
-
 3. **Self-Reflection Model**: An LLM that generates verbal reinforcement cues (i.e., self-reflection) based on the evaluator’s scores and action trajectories.
 
 The agent reflects on the task feedback, stores this reflection in an **episodic memory buffer**, and uses this “verbal feedback” to guide better decisions in subsequent trials without updating the model weights. This enables the agent to learn through trial and error.
@@ -1542,7 +1534,6 @@ Rating reasons: Overall, this conversation seems a bit **repetitive and lacks de
 Here are the specific reasons for the rating:
 
 * **High repetitiveness:** There are many almost identical responses in the conversation, such as the back and forth about "The weather is really good, I like to create on days like this", which greatly reduces the efficiency and information increment of the conversation. The LLM Agents failed to effectively advance the conversation.
-
 * **Lack of coherence:** There is a noticeable jump in the late stage of the conversation. For example, Adam asked Lily if she wanted to go for a walk. After Lily refused, Adam suddenly asked, "What do you seem to be waiting for? Do you need my help?" Lily's answer jumped back to "The weather is nice, suitable for practicing my painting", which made the conversation lack natural transitions and logic.
 * **Low information increment:** In many rounds, the agent just repeated or slightly rephrased the other party's statement without introducing new information or ideas.
 * **Failure to effectively explore the topic:** The topic of "capturing the atmosphere and expression of the script" at the beginning of the conversation had great potential, but it quickly deviated. Although it returned to the discussion of painting techniques in the end, the deviation in the middle weakened the overall quality of the conversation.
@@ -1557,9 +1548,7 @@ It can be seen that an external evaluator at a higher level can reasonably evalu
 Complex tasks can be decomposed and assigned to multiple specialized agents to complete together. There are several main forms of the architecture of such multi-agent systems:
 
 * **Network**: Agents can communicate freely with each other.
-
 * **Supervisor**: All agents communicate with a central supervisor, who makes routing decisions.
-
 * **Hierarchical**: There are supervisors of supervisors, forming a complex hierarchical structure.
 
 Frameworks such as CrewAI facilitate this collaboration by allocating agents based on roles. For example, the Chain-of-Agents (CoA) framework uses a series of "worker" agents to sequentially process each chunk of a long context and pass the aggregated evidence to a final "supervisor" agent, which outperforms RAG and full-context models on long-context tasks.
@@ -1569,3 +1558,9 @@ Multi-agent systems provide a scalable solution to context constraints and task 
 ---
 
 Today's experiment has led to a rather large problem. Tomorrow I will choose a direction and redesign the architecture to see if the conversation can be less rigid. I am considering using external APIs for testing tomorrow and deepseek-R1 to rule out problems with the LLM capability itself. If deepseek-R1 also has obvious problems with rigid conversations, then it means that I need to completely reconstruct the architecture and overturn and redesign the current memory system and other ideas.
+
+### July 9, 2025 New Architecture Design
+
+![1752015679429](image/V1_Dev_Diary.zh/1752015679429.png){style="display:block; margin:auto; width:800px;"}
+
+Today's topic.
