@@ -23,7 +23,7 @@ plugins:
 
 nav:
   - Home: index.md
-  - Dev Log:
+  - Dev Diary:
     - V1: Development_Hisotry/V1_Dev_Diary.md
 
 
