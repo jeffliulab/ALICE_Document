@@ -24,7 +24,7 @@ plugins:
 nav:
   - Home: index.md
   - Dev Log:
-    - V1.0: Development_Hisotry/V1_Dev_Diary.md
+    - V1: Development_Hisotry/V1_Dev_Diary.md
 
 
 markdown_extensions:
