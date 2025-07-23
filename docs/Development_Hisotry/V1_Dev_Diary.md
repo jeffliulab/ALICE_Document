@@ -16,37 +16,37 @@ Let's first look at Joon's experiment. In Joon's experiment, he added a Retrieve
 
 In this system, there are several key points:
 
-* **Memory and experience:**The agent records the moments of life through Memory Stream
-* **Growth and reflection:**The agent extracts trivial memories through the Retrieve mechanism
-* **Bottom-up design:**Each agent is not controlled by the central brain
+* **Memory and experience:** The agent records the moments of life through Memory Stream
+* **Growth and reflection:** The agent extracts trivial memories through the Retrieve mechanism
+* **Bottom-up design:** Each agent is not controlled by the central brain
 
 The bottom-up design in this system is very critical. Let's look at the "bottom" first. Its core elements include:
 
-* **Independent individuals:**The 25 individuals are independent of each other, and each individual has his own memory, personality, experience, etc.
-* **Simple behavior cycle:**Each agent has a very simple cycle in life, as shown in the figure above. This cycle is the driving force of their behavior
-* **Local information:**Each agent can only obtain external information through communication, and cannot directly obtain it through the God's perspective
+* **Independent individuals:** The 25 individuals are independent of each other, and each individual has his own memory, personality, experience, etc.
+* **Simple behavior cycle:** Each agent has a very simple cycle in life, as shown in the figure above. This cycle is the driving force of their behavior
+* **Local information:** Each agent can only obtain external information through communication, and cannot directly obtain it through the God's perspective
 
 Let's look at the "upper", that is, the goal of this multi-agent system:
 
-* **The formation of social networks: **Agents are divided into extroverts and introverts when they are set
-* **Organic spread of information: **The idea of "having a party" continues to spread along the social network
-* **Self-coordination of group behavior: **Multiple agents finally made the decision to go to the same place at the same time without the command of a central brain, and finally facilitated a successful collective activity - a party.
+* **The formation of social networks:** Agents are divided into extroverts and introverts when they are set
+* **Organic spread of information:** The idea of "having a party" continues to spread along the social network
+* **Self-coordination of group behavior:** Multiple agents finally made the decision to go to the same place at the same time without the command of a central brain, and finally facilitated a successful collective activity - a party.
 
-This experiment ends here. **The biggest highlight of this experiment is that the author Joon only implanted the idea of having a party in one individual, but this idea was spread through social communication and eventually formed a very successful collective activity. This is a very surprising "emergence". **
+This experiment ends here. **The biggest highlight of this experiment is that the author Joon only implanted the idea of having a party in one individual, but this idea was spread through social communication and eventually formed a very successful collective activity. This is a very surprising "emergence".**
 
 Of course, there are also many necessary top-down designs in this system, such as the physical laws of the world, initial conditions, etc. Although these are regarded as background, the structure itself also has a great impact on bottom-up behavior. The biggest limitation is that all agents are driven by LLM as the core.
 
 ---
 
-At the beginning of the year, I did a small demo in my AI class, using PROMPT as memory to let Louise, a farmer who couldn't walk, gradually learn to walk through constant conversations with me. But this experiment quickly made me realize its limitations: **When calling LLM, only PROMPT and the additional memory bank are changed, and although LLM, as a carrier of thinking, is an "omniscient brain", it is "frozen in an instant". **
+At the beginning of the year, I did a small demo in my AI class, using PROMPT as memory to let Louise, a farmer who couldn't walk, gradually learn to walk through constant conversations with me. But this experiment quickly made me realize its limitations: **When calling LLM, only PROMPT and the additional memory bank are changed, and although LLM, as a carrier of thinking, is an "omniscient brain", it is "frozen in an instant".**
 
-In other words, no matter how the memory of the LLM-based agent changes, its brain model is static. Let's go back to the story of Sword Art Online. The concept of Alice's cultivation is to implant a baby brain model that knows nothing, that is, an LLM model that has not been trained with pre-training data, into NPC Alice through Fluctlight, and then let Alice interact with the environment and humans to continuously achieve self-growth. **In the process of Alice's growth, in addition to the above Memory Stream and Retrieve mechanisms, there is another key change, namely: **
+In other words, no matter how the memory of the LLM-based agent changes, its brain model is static. Let's go back to the story of Sword Art Online. The concept of Alice's cultivation is to implant a baby brain model that knows nothing, that is, an LLM model that has not been trained with pre-training data, into NPC Alice through Fluctlight, and then let Alice interact with the environment and humans to continuously achieve self-growth. **In the process of Alice's growth, in addition to the above Memory Stream and Retrieve mechanisms, there is another key change, namely:**
 
 * **The weight change of the brain model itself**
 
-**In other words, Alice's growth is continuous learning, and its LLM model itself will continuously update and optimize its own neural network in real time and continuously. **
+**In other words, Alice's growth is continuous learning, and its LLM model itself will continuously update and optimize its own neural network in real time and continuously.**
 
-Let's take a look at some special mechanisms in Underworld, namely the death setting. In Underworld, the character will feel the pressure of survival. If the character forcibly violates the taboo list, it will cause the appearance of the guard or the explosion of his own eyeballs. **This real consequence is completely different from the current LLM training. We can think that the current LLM is mild, that is, ChatGPT, Claude, Gemini, DeepSeek, etc., cannot feel the pressure of survival. **
+Let's take a look at some special mechanisms in Underworld, namely the death setting. In Underworld, the character will feel the pressure of survival. If the character forcibly violates the taboo list, it will cause the appearance of the guard or the explosion of his own eyeballs. **This real consequence is completely different from the current LLM training. We can think that the current LLM is mild, that is, ChatGPT, Claude, Gemini, DeepSeek, etc., cannot feel the pressure of survival.**
 
 In addition, in addition to language, Alice lives in a world with specific physical rules. There are many pioneering studies on this point, including LeCun's persistent world model. I think this should not be a big problem. The development of embodied intelligence, three-dimensional games, etc. can make up for this shortcoming.
 
@@ -65,30 +65,30 @@ This is also the logical loop of the novel itself, which is why the military did
 
 Why can't it be trained continuously?
 
-* **Currently, the architecture of neural network models is basically still Transformer. **During training, backpropagation algorithms are used for training. Once trained, the input information can only be used as context input to call inference. The benefits of inference are extremely low cost, extremely fast process, and excellent application effect.
-* **Catastrophic Forgetting:**When learning new knowledge, neural networks tend to overwrite and destroy old knowledge. In other words, if the weights are adjusted when talking to people, the basic knowledge of physics and history that has been learned with great difficulty may be contaminated and overwritten by the content of the conversation, resulting in highly unstable models.
-* **Huge computing cost:**The training process of adjusting weights is very expensive. If it is started once for each conversation, it cannot be supported by energy.
-* **Security and data pollution: **Malicious users can poison and pollute the AI model, causing it to learn dirty words, hate speech, etc. Therefore, models open to the public must freeze weights.
-* **Pre-training is too slow: **Inference is fast, but training and adjusting parameter weights are very slow. If adjustments are made in real time during a conversation, the conversation will not be able to proceed.
+* **Currently, the architecture of neural network models is basically still Transformer.** During training, backpropagation algorithms are used for training. Once trained, the input information can only be used as context input to call inference. The benefits of inference are extremely low cost, extremely fast process, and excellent application effect.
+* **Catastrophic Forgetting:** When learning new knowledge, neural networks tend to overwrite and destroy old knowledge. In other words, if the weights are adjusted when talking to people, the basic knowledge of physics and history that has been learned with great difficulty may be contaminated and overwritten by the content of the conversation, resulting in highly unstable models.
+* **Huge computing cost:** The training process of adjusting weights is very expensive. If it is started once for each conversation, it cannot be supported by energy.
+* **Security and data pollution:** Malicious users can poison and pollute the AI model, causing it to learn dirty words, hate speech, etc. Therefore, models open to the public must freeze weights.
+* **Pre-training is too slow:** Inference is fast, but training and adjusting parameter weights are very slow. If adjustments are made in real time during a conversation, the conversation will not be able to proceed.
 
-Why is the current solution unsustainable? This is to quote Sutton's The Bitter Lesson: **Any attempt to modify the AI model in a human way of thinking will be disastrous in the long run. **In other words, RAG mode, external memory, etc. are not the real growth of thinking ability. As long as the weights of the neural network are frozen, any growth is unrealistic, which is why Sutton is very pessimistic about HFRL. OpenAI uses a lot of HFRL because the goal of ChatGPT is to efficiently answer questions, program, work, etc., and the intelligence that Sutton pursues is a real way to gain wisdom through learning, similar to Alice. **Sutton believes that no one knows everything when they are born, and humans can learn quickly through interaction. Wisdom itself must be able to reflect this, that is, learning through interaction. **
+Why is the current solution unsustainable? This is to quote Sutton's The Bitter Lesson: **Any attempt to modify the AI model in a human way of thinking will be disastrous in the long run.** In other words, RAG mode, external memory, etc. are not the real growth of thinking ability. As long as the weights of the neural network are frozen, any growth is unrealistic, which is why Sutton is very pessimistic about HFRL. OpenAI uses a lot of HFRL because the goal of ChatGPT is to efficiently answer questions, program, work, etc., and the intelligence that Sutton pursues is a real way to gain wisdom through learning, similar to Alice. **Sutton believes that no one knows everything when they are born, and humans can learn quickly through interaction. Wisdom itself must be able to reflect this, that is, learning through interaction.**
 
 ---
 
-**Can Continual Learning achieve AGI? **
+**Can Continual Learning achieve AGI?**
 
 Currently, the world's top AI laboratories and universities are actively conducting research on Continual Learning. Although this direction is still very laboratory-based, their research is undoubtedly an important path to creating a truly intelligent intelligent entity like Alice.
 
-**I suddenly realized why many people at OpenAI think that AGI is coming soon. If the weights of the neural network can be changed in real time and reasonably through dialogue and communication, wouldn't that be AGI? **
+**I suddenly realized why many people at OpenAI think that AGI is coming soon. If the weights of the neural network can be changed in real time and reasonably through dialogue and communication, wouldn't that be AGI?**
 
 As an anime character, Alice has many features that must be achieved to achieve AGI:**
 
 * The neural network is not frozen, but can learn and grow through real-time interaction, which can reflect **"growth ability"**
 * For new knowledge in the interaction, whether to choose to overwrite the old weights and establish new weights, which can reflect **"understanding ability"**
-* **Solve the alignment problem: **How to establish a core value, that is, Alice in Sword Art Online, who stands on the side of human morality and objective rational justice, and will not blindly follow the leader just because he is a villain. This may be the most difficult or controversial aspect to solve, because humans themselves cannot solve the alignment problem, so violence, crime, deception, brainwashing and other things happen.
+* **Solve the alignment problem:** How to establish a core value, that is, Alice in Sword Art Online, who stands on the side of human morality and objective rational justice, and will not blindly follow the leader just because he is a villain. This may be the most difficult or controversial aspect to solve, because humans themselves cannot solve the alignment problem, so violence, crime, deception, brainwashing and other things happen.
 * **The emergence of intrinsic motivation: not only can external dialogue or interaction change one's own neural network, but also through self-reflection and thinking, one can change one's behavior**
 * World model, this does not need to be elaborated
-* **Stability: It will not be easily polluted. It will not collapse easily. **
+* **Stability: It will not be easily polluted. It will not collapse easily.**
 
 ---
 
@@ -118,7 +118,7 @@ Finally, let's take a look at some of the most interesting parts of [Joon Sung P
 
 In summary, Joon's experiment designed a very sophisticated and clever mechanism, just like making a diary. **However, the experiment did not make any modifications to the LLM itself, so the performance of the system will rely heavily on the performance of the LLM itself. **In short, the same physics manual, given to ordinary people and given to Einstein, the results are completely different. And the difference in this matter is not the notebook, but the difference between the brains of ordinary people and Einstein.
 
-**Sword Art Online inspired me conceptually, while Joon's work inspired me technically. **Joon's work has opened up a very interesting and valuable direction of discussion, and I want to combine the two and set up a larger stage. In other words, **I want to make a "real" world with a huge map, many characters, and humans can dive into. Every resident in this world is not a hard-coded NPC, but an entity that thinks and expands memory through LLM. **
+**Sword Art Online inspired me conceptually, while Joon's work inspired me technically.** Joon's work has opened up a very interesting and valuable direction of discussion, and I want to combine the two and set up a larger stage. In other words, **I want to make a "real" world with a huge map, many characters, and humans can dive into. Every resident in this world is not a hard-coded NPC, but an entity that thinks and expands memory through LLM.**
 
 ### July 5, 2025 Godot Game Engine
 
@@ -699,7 +699,7 @@ if __name__ == "__main__":
         if action_to_execute.get("tool_name") == "do_nothing" and i > 0:
             print("\nSimulation ends as a character chose to do nothing.")
             break
-    
+  
     print("\n=============================================")
     print("====== A.L.I.C.E. Simulation Finished ======")
     print("=============================================")
