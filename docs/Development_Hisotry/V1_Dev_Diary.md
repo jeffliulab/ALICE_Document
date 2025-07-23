@@ -699,7 +699,7 @@ if __name__ == "__main__":
         if action_to_execute.get("tool_name") == "do_nothing" and i > 0:
             print("\nSimulation ends as a character chose to do nothing.")
             break
-      
+    
     print("\n=============================================")
     print("====== A.L.I.C.E. Simulation Finished ======")
     print("=============================================")
@@ -1217,7 +1217,7 @@ Based on all the information above, generate your inner thought and the next too
 
 [Adam at T=7] New Memory Recorded: [thought] Her words are too smooth. I must be careful not to reveal my true intentions.
 [Adam] Decided Action: Call tool 'speak' with params {'target_name': 'Lily', 'content': "Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?"}
-[EXECUTOR] Executed speak for Adam. -> 'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'    
+[EXECUTOR] Executed speak for Adam. -> 'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'  
 
 --- Turn 8 ---
 
@@ -1298,7 +1298,7 @@ Based on all the information above, generate your inner thought and the next too
 ==================================================
 
 --- Adam's Turn (Action Cycle) ---
-[Adam at T=9] New Memory Recorded: [observed] 'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'     
+[Adam at T=9] New Memory Recorded: [observed] 'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'   
 
 ==================== LLM PROMPT (START) ====================
 <|begin_of_text|><|start_header_id|>system<|end_header_id|>
@@ -1563,4 +1563,8 @@ Today's experiment has led to a rather large problem. Tomorrow I will choose a d
 
 ![1752015679429](image/V1_Dev_Diary.zh/1752015679429.png){style="display:block; margin:auto; width:800px;"}
 
-Today's topic.
+I design a new structure today.
+
+### July 10 - 31: A break
+
+Due to preparation on a job interview, I pause the project and went for leetcoding... 'cause I did almost 0 leetcode before. I planned to do 200 leetcode questions in the rest of July, and built a foundational concept map of leetcode, so I can back to the project and won't allow the leetcode took too much time of mine.

@@ -167,7 +167,7 @@ Class Resident:
         （1）移动、寻路
         （2）交互
         （3）观察
-    
+  
     def Cycle:
         这个cycle是每个居民的生物时钟，必须和世界时钟保持一致
         在世界时钟运行的时候，从T到T+1的时候，会进行一个半并发进程
@@ -680,7 +680,7 @@ if __name__ == "__main__":
         if action_to_execute.get("tool_name") == "do_nothing" and i > 0:
             print("\nSimulation ends as a character chose to do nothing.")
             break
-      
+    
     print("\n=============================================")
     print("====== A.L.I.C.E. Simulation Finished ======")
     print("=============================================")
@@ -1248,9 +1248,12 @@ Reflexion框架在ReAct的基础上增加了一个自我批判和学习的层面
 
 今天的实验引出了一个略显庞大的问题，明天我会挑选一个方向，重新设计架构，看看能否让对话不再那么僵硬。我考虑明天使用外部API进行测试，用deepseek-R1进行测试，排除一下LLM能力本身的问题。如果deepseek-R1也有明显的对话僵硬问题，那么就说明我需要完全重构架构，现行记忆系统等思路也要推翻重新设计。
 
-
 ### 25年7月9日 新架构设计
 
 ![1752015679429](image/V1_Dev_Diary.zh/1752015679429.png){style="display:block; margin:auto; width:600px;"}
 
-待写。
+今天设计了一个新的结构。
+
+### 7月10日 - 31日：放假
+
+因为接到了一个26年毕业工作的面试，加上之前基本没做过leetcode，所以接下来到月底的这段时间我暂时离开项目，主攻leetcode。我的计划是在这个月剩下的时间里做200道leetcode题，建立一个比较基础性的leetcode知识图谱，这样之后就不会让leetcode刷题耽误我太多做项目的时间。
