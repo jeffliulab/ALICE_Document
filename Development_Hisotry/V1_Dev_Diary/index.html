@@ -1,0 +1,2094 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Jeff Liu">
+      
+      
+        <link rel="canonical" href="https://jeffliulab.github.io/ALICE_Document/Development_Hisotry/V1_Dev_Diary/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>V1 - A.L.I.C.E. PROJECT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#v1-development-log-diary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="A.L.I.C.E. PROJECT" class="md-header__button md-logo" aria-label="A.L.I.C.E. PROJECT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A.L.I.C.E. PROJECT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              V1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/Development_Hisotry/V1_Dev_Diary/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="A.L.I.C.E. PROJECT" class="md-nav__button md-logo" aria-label="A.L.I.C.E. PROJECT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    A.L.I.C.E. PROJECT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dev Diary
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Dev Diary
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    V1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    V1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v10-system-design-from-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      V1.0 System design from concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="V1.0 System design from concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#july-4-2025-why-start-this-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 4, 2025 Why start this project?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-5-2025-godot-game-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 5, 2025 Godot Game Engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-6-2025-ollama-llm-quick-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 6, 2025 Ollama LLM Quick Inference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-7-2025-dialogue-test-between-two-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 7, 2025 Dialogue test between two agents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-8-2025-study-on-the-problem-of-rigid-and-repetitive-dialogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 8, 2025 Study on the problem of rigid and repetitive dialogue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-9-2025-new-architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 9, 2025 New Architecture Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-10-31-a-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 10 - 31: A break
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v10-system-design-from-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      V1.0 System design from concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="V1.0 System design from concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#july-4-2025-why-start-this-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 4, 2025 Why start this project?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-5-2025-godot-game-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 5, 2025 Godot Game Engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-6-2025-ollama-llm-quick-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 6, 2025 Ollama LLM Quick Inference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-7-2025-dialogue-test-between-two-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 7, 2025 Dialogue test between two agents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-8-2025-study-on-the-problem-of-rigid-and-repetitive-dialogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 8, 2025 Study on the problem of rigid and repetitive dialogue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-9-2025-new-architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 9, 2025 New Architecture Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#july-10-31-a-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      July 10 - 31: A break
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="v1-development-log-diary">V1 Development Log (Diary)</h1>
+<h2 id="v10-system-design-from-concept">V1.0 System design from concept</h2>
+<h3 id="july-4-2025-why-start-this-project">July 4, 2025 Why start this project?</h3>
+<p>In my spare time these two days, I watched a few episodes of Sword Art Online, an anime I watched in high school. Because I didn't expect that this story would have a sequel, and this part of the sequel, that is, the content about Underworld in the anime, deeply touched me. At the same time, I remembered an experiment I had seen before, which was a small-scale experiment by Joon, a doctoral student at Stanford. The collision of the two aroused my interest, and this is also the origin of the ALICE project.</p>
+<p>Underworld is a setting in the Japanese anime "Sword Art Online". Alice in this story reminded me of a demo I made some time ago, which tried to let LLM learn to move and recognize that it is in a limited world by interacting with humans.</p>
+<p><img alt="1751684819455" src="../image/from_alice_to_joon/1751684819455.png" /></p>
+<p>Then I remembered something I saw a long time ago: <a href="https://www.youtube.com/watch?v=XY5Wncq5vAE">Joon Sung Park&#39;s generative agents experiment</a>，the papaer's link <a href="https://arxiv.org/abs/2304.03442">click here</a>。</p>
+<p>Let's first look at Joon's experiment. In Joon's experiment, he added a Retrieve mechanism:<img alt="1751681070873" src="../image/index/1751681070873.png" /></p>
+<p>In this system, there are several key points:</p>
+<ul>
+<li><strong>Memory and experience:</strong> The agent records the moments of life through Memory Stream</li>
+<li><strong>Growth and reflection:</strong> The agent extracts trivial memories through the Retrieve mechanism</li>
+<li><strong>Bottom-up design:</strong> Each agent is not controlled by the central brain</li>
+</ul>
+<p>The bottom-up design in this system is very critical. Let's look at the "bottom" first. Its core elements include:</p>
+<ul>
+<li><strong>Independent individuals:</strong> The 25 individuals are independent of each other, and each individual has his own memory, personality, experience, etc.</li>
+<li><strong>Simple behavior cycle:</strong> Each agent has a very simple cycle in life, as shown in the figure above. This cycle is the driving force of their behavior</li>
+<li><strong>Local information:</strong> Each agent can only obtain external information through communication, and cannot directly obtain it through the God's perspective</li>
+</ul>
+<p>Let's look at the "upper", that is, the goal of this multi-agent system:</p>
+<ul>
+<li><strong>The formation of social networks:</strong> Agents are divided into extroverts and introverts when they are set</li>
+<li><strong>Organic spread of information:</strong> The idea of "having a party" continues to spread along the social network</li>
+<li><strong>Self-coordination of group behavior:</strong> Multiple agents finally made the decision to go to the same place at the same time without the command of a central brain, and finally facilitated a successful collective activity - a party.</li>
+</ul>
+<p>This experiment ends here. <strong>The biggest highlight of this experiment is that the author Joon only implanted the idea of having a party in one individual, but this idea was spread through social communication and eventually formed a very successful collective activity. This is a very surprising "emergence".</strong></p>
+<p>Of course, there are also many necessary top-down designs in this system, such as the physical laws of the world, initial conditions, etc. Although these are regarded as background, the structure itself also has a great impact on bottom-up behavior. The biggest limitation is that all agents are driven by LLM as the core.</p>
+<hr />
+<p>At the beginning of the year, I did a small demo in my AI class, using PROMPT as memory to let Louise, a farmer who couldn't walk, gradually learn to walk through constant conversations with me. But this experiment quickly made me realize its limitations: <strong>When calling LLM, only PROMPT and the additional memory bank are changed, and although LLM, as a carrier of thinking, is an "omniscient brain", it is "frozen in an instant".</strong></p>
+<p>In other words, no matter how the memory of the LLM-based agent changes, its brain model is static. Let's go back to the story of Sword Art Online. The concept of Alice's cultivation is to implant a baby brain model that knows nothing, that is, an LLM model that has not been trained with pre-training data, into NPC Alice through Fluctlight, and then let Alice interact with the environment and humans to continuously achieve self-growth. <strong>In the process of Alice's growth, in addition to the above Memory Stream and Retrieve mechanisms, there is another key change, namely:</strong></p>
+<ul>
+<li><strong>The weight change of the brain model itself</strong></li>
+</ul>
+<p><strong>In other words, Alice's growth is continuous learning, and its LLM model itself will continuously update and optimize its own neural network in real time and continuously.</strong></p>
+<p>Let's take a look at some special mechanisms in Underworld, namely the death setting. In Underworld, the character will feel the pressure of survival. If the character forcibly violates the taboo list, it will cause the appearance of the guard or the explosion of his own eyeballs. <strong>This real consequence is completely different from the current LLM training. We can think that the current LLM is mild, that is, ChatGPT, Claude, Gemini, DeepSeek, etc., cannot feel the pressure of survival.</strong></p>
+<p>In addition, in addition to language, Alice lives in a world with specific physical rules. There are many pioneering studies on this point, including LeCun's persistent world model. I think this should not be a big problem. The development of embodied intelligence, three-dimensional games, etc. can make up for this shortcoming.</p>
+<p>Therefore, we review the current LLM system structure and the setting of Alice in Sword Art Online. It is not difficult to find that Alice, as an agent, has a crucial feature:</p>
+<ul>
+<li><strong>Shapeable values</strong></li>
+</ul>
+<p>This is also the logical loop of the novel itself, which is why the military did not use the villains who are already capable of killing as the core of AI, but instead had to create Alice. Because the villains will follow whoever is stronger, it is more like an NPC setting, which is not stable in war. And <strong>Alice has value judgment, that is, once Alice determines that the camp she is in is the camp she wants to protect, and the war she participates in is a just act to protect her own camp, then Alice will be difficult to be easily turned against. </strong>Therefore, the Alice version of the intelligent body is more in line with the requirements of soldiers.</p>
+<hr />
+<p><strong>In summary, the current LLM multi-role experiment has the following problems:</strong></p>
+<ul>
+<li><strong>LLM is a trained model. After inputting Prompt, the LLM model will only perform inference, and will not adjust the weight according to the pressure</strong></li>
+<li><strong>LLM is trained once and cannot continue to learn</strong></li>
+</ul>
+<p>Why can't it be trained continuously?</p>
+<ul>
+<li><strong>Currently, the architecture of neural network models is basically still Transformer.</strong> During training, backpropagation algorithms are used for training. Once trained, the input information can only be used as context input to call inference. The benefits of inference are extremely low cost, extremely fast process, and excellent application effect.</li>
+<li><strong>Catastrophic Forgetting:</strong> When learning new knowledge, neural networks tend to overwrite and destroy old knowledge. In other words, if the weights are adjusted when talking to people, the basic knowledge of physics and history that has been learned with great difficulty may be contaminated and overwritten by the content of the conversation, resulting in highly unstable models.</li>
+<li><strong>Huge computing cost:</strong> The training process of adjusting weights is very expensive. If it is started once for each conversation, it cannot be supported by energy.</li>
+<li><strong>Security and data pollution:</strong> Malicious users can poison and pollute the AI model, causing it to learn dirty words, hate speech, etc. Therefore, models open to the public must freeze weights.</li>
+<li><strong>Pre-training is too slow:</strong> Inference is fast, but training and adjusting parameter weights are very slow. If adjustments are made in real time during a conversation, the conversation will not be able to proceed.</li>
+</ul>
+<p>Why is the current solution unsustainable? This is to quote Sutton's The Bitter Lesson: <strong>Any attempt to modify the AI model in a human way of thinking will be disastrous in the long run.</strong> In other words, RAG mode, external memory, etc. are not the real growth of thinking ability. As long as the weights of the neural network are frozen, any growth is unrealistic, which is why Sutton is very pessimistic about HFRL. OpenAI uses a lot of HFRL because the goal of ChatGPT is to efficiently answer questions, program, work, etc., and the intelligence that Sutton pursues is a real way to gain wisdom through learning, similar to Alice. <strong>Sutton believes that no one knows everything when they are born, and humans can learn quickly through interaction. Wisdom itself must be able to reflect this, that is, learning through interaction.</strong></p>
+<hr />
+<p><strong>Can Continual Learning achieve AGI?</strong></p>
+<p>Currently, the world's top AI laboratories and universities are actively conducting research on Continual Learning. Although this direction is still very laboratory-based, their research is undoubtedly an important path to creating a truly intelligent intelligent entity like Alice.</p>
+<p><strong>I suddenly realized why many people at OpenAI think that AGI is coming soon. If the weights of the neural network can be changed in real time and reasonably through dialogue and communication, wouldn't that be AGI?</strong></p>
+<p>As an anime character, Alice has many features that must be achieved to achieve AGI:**</p>
+<ul>
+<li>The neural network is not frozen, but can learn and grow through real-time interaction, which can reflect <strong>"growth ability"</strong></li>
+<li>For new knowledge in the interaction, whether to choose to overwrite the old weights and establish new weights, which can reflect <strong>"understanding ability"</strong></li>
+<li><strong>Solve the alignment problem:</strong> How to establish a core value, that is, Alice in Sword Art Online, who stands on the side of human morality and objective rational justice, and will not blindly follow the leader just because he is a villain. This may be the most difficult or controversial aspect to solve, because humans themselves cannot solve the alignment problem, so violence, crime, deception, brainwashing and other things happen.</li>
+<li><strong>The emergence of intrinsic motivation: not only can external dialogue or interaction change one's own neural network, but also through self-reflection and thinking, one can change one's behavior</strong></li>
+<li>World model, this does not need to be elaborated</li>
+<li><strong>Stability: It will not be easily polluted. It will not collapse easily.</strong></li>
+</ul>
+<hr />
+<p>Finally, let's take a look at some of the most interesting parts of <a href="https://www.youtube.com/watch?v=XY5Wncq5vAE">Joon Sung Park&#39;s generative agent experiment</a>:</p>
+<p><img alt="1751684552192" src="../image/index/1751684552192.png" /></p>
+<p><img alt="1751684558680" src="../image/index/1751684558680.png" /></p>
+<p><img alt="1751684587081" src="../image/index/1751684587081.png" /></p>
+<p><img alt="1751684627205" src="../image/index/1751684627205.png" /></p>
+<p><img alt="1751684751844" src="../image/index/1751684751844.png" /></p>
+<p><img alt="1751684957048" src="../image/from_alice_to_joon/1751684957048.png" /></p>
+<p><img alt="1751684970160" src="../image/from_alice_to_joon/1751684970160.png" /></p>
+<p><img alt="1751684996098" src="../image/from_alice_to_joon/1751684996098.png" /></p>
+<p><img alt="1751685216518" src="../image/from_alice_to_joon/1751685216518.png" /></p>
+<p><img alt="1751685235075" src="../image/from_alice_to_joon/1751685235075.png" /></p>
+<p><img alt="1751685243927" src="../image/from_alice_to_joon/1751685243927.png" /></p>
+<p>In summary, Joon's experiment designed a very sophisticated and clever mechanism, just like making a diary. <strong>However, the experiment did not make any modifications to the LLM itself, so the performance of the system will rely heavily on the performance of the LLM itself. </strong>In short, the same physics manual, given to ordinary people and given to Einstein, the results are completely different. And the difference in this matter is not the notebook, but the difference between the brains of ordinary people and Einstein.</p>
+<p><strong>Sword Art Online inspired me conceptually, while Joon's work inspired me technically.</strong> Joon's work has opened up a very interesting and valuable direction of discussion, and I want to combine the two and set up a larger stage. In other words, <strong>I want to make a "real" world with a huge map, many characters, and humans can dive into. Every resident in this world is not a hard-coded NPC, but an entity that thinks and expands memory through LLM.</strong></p>
+<h3 id="july-5-2025-godot-game-engine">July 5, 2025 Godot Game Engine</h3>
+<p>Download Godot, create my first Godot project.</p>
+<p>Learn how to create a map, how to use tile and tilemap.</p>
+<p><img alt="1751911860114" src="../image/V1_Dev_Diary/1751911860114.png" style="display:block; margin:auto; width:800px;" /></p>
+<h3 id="july-6-2025-ollama-llm-quick-inference">July 6, 2025 Ollama LLM Quick Inference</h3>
+<p>Learn how to create conversations.</p>
+<p>Use Ollama and download <code>llama3.1:8b-instruct-q4_K_M</code> as the demo's inference model.</p>
+<p><img alt="1751911866303" src="../image/V1_Dev_Diary/1751911866303.png" style="display:block; margin:auto; width:800px;" /></p>
+<h3 id="july-7-2025-dialogue-test-between-two-agents">July 7, 2025 Dialogue test between two agents</h3>
+<p>Create Resident Class and implement two characters as instances.</p>
+<p>Test different versions, it can somehow communicate <strong>but the conversation (use json format) is HIGHLY UNSTABLE.</strong> The problem mainly happens in the format of json, I think it might because the llama3.1:8b-instruct-q4_K_M doesn't have enought inference power on json format output.</p>
+<p>I designed a simple role architecture, the pseudo code is as follows:</p>
+<pre><code class="language-pseudocode"># This is a general template for residents.
+# New residents can be created by instantiating this class.
+
+Class Resident:
+    # Initializes the basic attributes of a resident.
+    def __init__():
+        type: human, creature, monster
+        age: 0 - 200
+        sex: male, female, unique
+        memory_size: 1 - 200  # Defines the capacity of short-term memory
+        init_brain()
+
+    # Initializes the resident's &quot;brain,&quot; which is powered by an LLM.
+    def init_brain():
+        # The brain is an LLM.
+        # Whenever a resident is initialized, its brain must also be configured.
+
+    # Defines abilities common to all residents.
+    def ability():
+        # All residents have the following abilities:
+        # (1) Movement, Pathfinding
+        # (2) Interaction (with objects or other residents)
+        # (3) Observation (of the environment)
+
+    # Manages the resident's internal clock.
+    def Cycle():
+        # This cycle is each resident's biological clock and must be synchronized with the world clock.
+        # As the world clock advances from T to T+1, a semi-concurrent process occurs.
+        # Based on available computing power, all residents' clocks are incrementally advanced from T to T+1.
+        # When all residents' clocks have advanced to T+1, one time step is considered complete.
+
+    # Defines the actions a resident takes within a single time step (T to T+1).
+    def Action_At_Timestamp_T():
+        # If the resident is awake:
+        def Think():
+            # The resident considers its current environment, status, goals, etc., and sends this information to the brain (LLM).
+            # The brain returns a thinking result (a plan or decision).
+
+        def Action():
+            # The resident acts based on the thinking result.
+            # Actions can include:
+            #   - Moving
+            #   - Speaking
+            #   - etc.
+
+        def End_Action():
+            # Concludes the action for the current time step.
+            # Stores the recent observations, interactions, actions, etc., into the memory_stream.
+
+        # If the resident is sleeping:
+        def dream():
+            # The day's `memory_stream` content is sent to the brain for abstract understanding and consolidation.
+            # The resulting abstract insights are stored in `concept_memory_abstraction`.
+
+    # Defines the resident's knowledge system.
+    def Knowledge():
+        # The knowledge system is composed of a database.
+        # When a resident is created, it copies the database content to generate a unique instance for itself.
+        # Database Schema:
+        # [ID]               - Knowledge ID, primary key
+        # [Category]         - 0: common_sense, 1: history, 2: geography, 3: culture, 4: morality, 5: rules
+        # [Content]          - The actual content of the knowledge.
+        # [Source]           - The origin of this knowledge:
+        #                        0: No source (innate, natural setting)
+        #                        1: Church
+        #                        2: Dark (knowledge from dark realms)
+        #                        3: Oriental (e.g., secrets known only to an eastern faction)
+        # [Is_Mastered]      - Initially 0 in the master database. Set as needed during resident creation.
+        #                        0: Not mastered
+        #                        1: Mastered
+        #                        2: Doubted (A special state, reserved for future implementation)
+
+# The Human class inherits from the Resident class.
+Class Human extends Resident:
+    def __init__():
+        type: human
+        age: 1 - 100
+        sex: male, female
+        memory_size: 1 - 200
+        identity: &quot;Priest&quot;, &quot;Knight Templar&quot;, &quot;Paladin&quot;, &quot;Knight&quot;, &quot;Farmer&quot;, &quot;Carpenter&quot;, &quot;Blacksmith&quot;, &quot;Commoner&quot;, etc.
+        init_brain()      # Initializes the human's system prompt and concepts.
+        init_knowledge()  # Initializes the human's specific knowledge base.
+
+    # Overrides the base init_brain method for humans.
+    def init_brain():
+        # For humans, a more powerful LLM is recommended.
+        # The System Prompt is also defined here, stored within the 'Concept' structure.
+
+        # Initialize Concept (which functions as the system prompt):
+        #   concept_ego example:
+        #   &quot;&quot;&quot;
+        #   Who I am: My name is Arthur, I am a carpenter.
+        #   Where I am: I live in a place called Hillside Town.
+        #   &quot;&quot;&quot;
+        #   concept_goal example:
+        #   &quot;&quot;&quot;
+        #   My current goal: I want to craft a very beautiful door frame.
+        #   &quot;&quot;&quot;
+        #   concept_memory_abstraction example:
+        #   &quot;&quot;&quot;
+        #   (Initialize with a fabricated past here)
+        #   Summary of my recent past: I have been cutting trees and gathering wood for the last few days.
+        #   &quot;&quot;&quot;
+
+    # A stream of memories recorded over time.
+    def Memory_Stream():
+        # Memories are stored in a dictionary-like structure.
+        # Key is the timestamp, Value is the content of the memory.
+        # All conversations, observations, and actions are added directly to the memory stream with a timestamp.
+
+    # Reads from the memory stream for recall during the Think phase.
+    def read_memory_stream(related_object):
+        # Retrieve memories based on recency, defined by memory_size.
+        # X = The latest 'memory_size' entries from the memory_stream.
+
+        # Retrieve memories based on relevance to a given object or concept (associative recall).
+        # This simulates &quot;seeing something that reminds you of something else.&quot;
+        # Y = Memories from the memory_stream that are relevant to the 'related_object'.
+        # A vector database would likely be required for this relevance search.
+
+        return X, Y # Return recent memories and relevant memories.
+
+    # Stores core identity information.
+    def concept_ego():
+        # Stores information like &quot;who I am,&quot; and &quot;where I am.&quot;
+        # This replaces a static system prompt, allowing for dynamic identity.
+        # The ego is re-examined and potentially updated during the 'dream' phase.
+        # This is designed separately to allow for future mechanics of self-reinvention.
+
+    # Stores abstract goals and motivations.
+    def concept_goal():
+        # Stores abstract ideals, dreams, life ambitions, etc.
+
+    # Stores summarized and reflected-upon memories.
+    def concept_memory_abstraction():
+        # Stores abstractions of past memories.
+        # This is typically updated during the 'dream' phase by processing the day's `memory_stream`.
+        # This refinement process involves two steps:
+        # (1) Summarization:
+        #     - Use an LLM with a prompt to condense the day's memory stream.
+        #     - e.g., prompt: &quot;Please summarize the following daily records into 5 key events.&quot;
+        # (2) Reflection:
+        #     - Use an LLM with a prompt to generate insights from the summary.
+        #     - e.g., prompt: &quot;Based on today's key events, do you have any new insights about the world, yourself, or your goals? Summarize in 1-3 sentences.&quot;
+
+    # Initializes the human's starting knowledge.
+    def init_knowledge():
+        # Initializes the knowledge base according to the specific human's background and identity.
+        # This process involves reading the master knowledge database and setting the 'Is_Mastered' flag to 1 for relevant entries.
+
+    # A mechanism for acquiring new knowledge.
+    def get_knowledge():
+        # During the 'dream' phase, if certain memories or reflections are deemed significant enough to be &quot;knowledge,&quot;
+        # they can be used to modify the resident's knowledge base (e.g., changing an entry from 'Not Mastered' to 'Mastered' or 'Doubted').
+
+
+# Example of a specific profession class inheriting from Human.
+Class Carpenter extends Human:
+    def ability():
+        # Define unique abilities for a Carpenter, such as crafting wood items.
+
+# Other professions would be structured similarly, inheriting from Human.
+# Specific implementations will be added after the core resident abilities are tested and finalized.
+</code></pre>
+<p>The Python code converted from the pseudocode can be found in test_scripts/V1/test4, and the generated results are as follows:</p>
+<p><img alt="1751911876193" src="../image/V1_Dev_Diary/1751911876193.png" style="display:block; margin:auto; width:500px;" /></p>
+<p>Translate in English:</p>
+<pre><code>Adam (Priest): I’m very pleased to meet you, Ms. Lily. Your artwork is breathtaking, and I believe your talent comes from God. He has given us inspiration and creativity, allowing us to thank Him through our work. Do you think your art could become a means to express faith in and love for Him?
+
+Lily (Painter): While your praise is an honor, I hope you will continue to appreciate my work. The source of art lies in our perception and experience of the world, and I believe that is also one of the gifts God has given us. I will continue to create wholeheartedly, bringing more beauty and inspiration to everyone.
+
+Adam (Priest): Ah, Lily, your art is not only your perception of the world but also one of the gifts God has bestowed upon you. Your creations indeed bring beauty and inspiration to people. I would like to know more about your sources of inspiration and how you integrate them into your work. This brings to mind the doctrinal relationship between art and spiritual uplifting—could you share some insights?
+
+Lily (Painter): Your generosity deeply honors me, Father Adam. I do believe art can bring people spiritual uplift and tranquility, but that is more about people’s perception of beautiful things. My creations are more rooted in observations of life rather than any special source of inspiration. This is a wonderful topic; we should continue exploring it, hoping to find some shared insights so that we may both benefit.
+
+Adam (Priest): Ms. Lily, your words bring me great comfort. I believe everyone’s art has its unique value. Your work not only brings beauty to people but also evokes reflection on spiritual uplift and tranquility. I would very much like to know, do you think your own art could become a means of evangelism, helping us to better understand God’s will?
+
+Lily (Painter): Although I believe everyone’s art has its unique value, I must emphasize that my creations still stem from observations of life, not from some special inspiration. As I mentioned before, I am devoted to capturing the beauty and reality of the world—elements that not only bring people spiritual uplift and tranquility but are also part of understanding God’s will. Through my art, I hope to create a resonance for everyone, allowing them to feel God’s love and wisdom within it. This is my commitment. I will continue to work in this way, striving to make my art not just beautiful but also a meaningful expression.
+
+Adam (Priest): Ms. Lily, your art not only allows people to experience beauty but also represents another aspect of the soul that God has given to humanity. By capturing the truth and beauty of the world, you bring people spiritual uplift and tranquility—this is testimony to God working among us. If I may ask, in your creative process, which experiences or observations do you consider most important to you?
+</code></pre>
+<p>It can be seen that the two instantiated objects have a certain degree of conversational capabilities.</p>
+<h3 id="july-8-2025-study-on-the-problem-of-rigid-and-repetitive-dialogue">July 8, 2025 Study on the problem of rigid and repetitive dialogue</h3>
+<p>Rewrite the code, set the formatted instruction set according to the format of llama3.1.</p>
+<p>Add the mechanisms of three tools, speak, move, and ovserve, and the result is a logical deadlock problem: on the existing LLM architecture, the dialogue cannot proceed smoothly, and a deadlock loop is prone to occur after a few rounds.</p>
+<p>The situations that occur include but are not limited to: the priest always observes, causing the dialogue to be unable to proceed; the painter always mentions the painting; the priest uses some special abilities, but these abilities cannot be transmitted to the painter through dialogue; etc.</p>
+<p>Test code:</p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+import json
+import time
+import requests
+from typing import List, Dict, Any, Tuple
+
+# ==============================================================================
+# 0. Global Configuration
+# ==============================================================================
+
+class OllamaLLM:
+    &quot;&quot;&quot;
+    LLM client for interacting with the Ollama API.
+    Responsible for sending constructed prompts and retrieving the model's JSON response.
+    &quot;&quot;&quot;
+    def __init__(self, model_name: str = &quot;llama3.1:8b-instruct-q4_K_M&quot;):
+        self.url = &quot;http://127.0.0.1:11434/api/generate&quot;
+        self.model_name = model_name
+
+    def get_response(self, prompt: str) -&gt; str:
+        &quot;&quot;&quot;Sends a prompt to Ollama and returns the model's raw response string.&quot;&quot;&quot;
+        print(&quot;\n&quot; + &quot;=&quot;*20 + &quot; LLM PROMPT (START) &quot; + &quot;=&quot;*20)
+        print(prompt)
+        print(&quot;=&quot;*20 + &quot; LLM PROMPT (END) &quot; + &quot;=&quot;*23 + &quot;\n&quot;)
+
+        payload = {
+            &quot;model&quot;: self.model_name,
+            &quot;prompt&quot;: prompt,
+            &quot;stream&quot;: False,
+            &quot;format&quot;: &quot;json&quot;, # Key: Force Ollama to output in JSON format
+            &quot;options&quot;: {&quot;temperature&quot;: 0.7}
+        }
+        try:
+            response = requests.post(self.url, json=payload, timeout=180)
+            response.raise_for_status()
+            response_data = response.json()
+            return response_data.get(&quot;response&quot;, &quot;{}&quot;)
+        except requests.exceptions.RequestException as e:
+            print(f&quot;[FATAL ERROR] LLM request failed: {e}&quot;)
+            # Return a JSON object representing the error to prevent system crashes
+            return json.dumps({
+                &quot;thought&quot;: &quot;My train of thought was cut off, I cannot connect to the depths of my consciousness.&quot;,
+                &quot;action&quot;: {&quot;tool_name&quot;: &quot;do_nothing&quot;, &quot;parameters&quot;: {}}
+            })
+
+class WorldClock:
+    &quot;&quot;&quot;Manages the time for the entire world.&quot;&quot;&quot;
+    def __init__(self):
+        self.timestamp = 0
+        print(&quot;WorldClock initialized. Time starts at T=0.&quot;)
+
+    def tick(self) -&gt; int:
+        &quot;&quot;&quot;Advances time by one unit.&quot;&quot;&quot;
+        self.timestamp += 1
+        print(f&quot;\n{'='*50}\n===== World Time advanced to T={self.timestamp} =====\n{'='*50}\n&quot;)
+        return self.timestamp
+
+class KnowledgeBase:
+    &quot;&quot;&quot;
+    Global central knowledge base.
+    Stores objective world information that all residents might know.
+    &quot;&quot;&quot;
+    def __init__(self):
+        # Initialize a small common sense database as per your requirements
+        self.db = {
+            101: {&quot;category&quot;: &quot;common_sense&quot;, &quot;content&quot;: &quot;This is a world where sword and magic coexist.&quot;, &quot;source&quot;: &quot;natural&quot;},
+            102: {&quot;category&quot;: &quot;rules&quot;, &quot;content&quot;: &quot;The church is the supreme ruler of this land and has supreme power.&quot;, &quot;source&quot;: &quot;church&quot;},
+            103: {&quot;category&quot;: &quot;rules&quot;, &quot;content&quot;: &quot;The Sons of the East and everything related to them are strictly prohibited heresies.&quot;, &quot;source&quot;: &quot;church&quot;},
+            104: {&quot;category&quot;: &quot;history&quot;, &quot;content&quot;: &quot;It is said that long ago, gods walked the earth.&quot;, &quot;source&quot;: &quot;church&quot;},
+        }
+        print(&quot;KnowledgeBase initialized with demo data.&quot;)
+
+    def get_knowledge_content(self, knowledge_id: int) -&gt; str:
+        &quot;&quot;&quot;Returns the content of a knowledge entry based on its ID.&quot;&quot;&quot;
+        return self.db.get(knowledge_id, {}).get(&quot;content&quot;, &quot;Unknown knowledge&quot;)
+
+# ==============================================================================
+# 1. Resident Core Framework
+# ==============================================================================
+
+class Resident:
+    &quot;&quot;&quot;
+    Base class (template) for all world residents.
+    Defines the common attributes and abilities for all residents.
+    &quot;&quot;&quot;
+    def __init__(self, name: str, age: int, sex: str, llm_client: OllamaLLM, knowledge_base: KnowledgeBase):
+        # --- Basic Attributes ---
+        self.name = name
+        self.age = age
+        self.sex = sex
+        self.type = self.__class__.__name__
+
+        # --- Memory and Knowledge ---
+        self.memory_stream: List[Dict] = []
+        self.knowledge_mastery: Dict[int, bool] = {} # Only stores the state of whether the resident has mastered a piece of knowledge
+
+        # --- External Dependencies ---
+        self.brain = llm_client
+        self.world_knowledge = knowledge_base # Reference to the global knowledge base
+
+        print(f&quot;[{self.type.upper()}] '{self.name}' has been created.&quot;)
+
+    def _record_memory(self, timestamp: int, event_type: str, content: str):
+        &quot;&quot;&quot;Records a new memory into the memory stream.&quot;&quot;&quot;
+        memory_entry = {&quot;timestamp&quot;: timestamp, &quot;type&quot;: event_type, &quot;content&quot;: content}
+        self.memory_stream.append(memory_entry)
+        print(f&quot;[{self.name} at T={timestamp}] New Memory Recorded: [{event_type}] {content}&quot;)
+        # In a real application, a vector database would be called here for indexing
+
+    def _get_relevant_memories(self, limit: int = 5) -&gt; List[str]:
+        &quot;&quot;&quot;
+        Retrieves relevant memories.
+        In this DEMO, we simply return the most recent few memories.
+        &quot;&quot;&quot;
+        recent_memories = self.memory_stream[-limit:]
+        return [f&quot;At T={m['timestamp']}, I {m['type']}: '{m['content']}'&quot; for m in recent_memories]
+
+    def _get_mastered_knowledge(self) -&gt; List[str]:
+        &quot;&quot;&quot;Gets a list of knowledge the resident has mastered.&quot;&quot;&quot;
+        mastered = []
+        for kid, is_mastered in self.knowledge_mastery.items():
+            if is_mastered:
+                mastered.append(self.world_knowledge.get_knowledge_content(kid))
+        return mastered
+
+    def decide_action(self, timestamp: int, observation: str) -&gt; Dict:
+        &quot;&quot;&quot;
+        The resident's core decision-making loop.
+        This is the implementation of Action_T, combining Think and Action.
+        &quot;&quot;&quot;
+        print(f&quot;--- {self.name}'s Turn (Action Cycle) ---&quot;)
+
+        # 1. Record the current observation
+        self._record_memory(timestamp, &quot;observed&quot;, observation)
+
+        # 2. Build the Prompt
+        prompt = self._build_prompt(observation)
+
+        # 3. Call the LLM for thinking and decision-making
+        response_str = self.brain.get_response(prompt)
+
+        try:
+            decision = json.loads(response_str)
+        except json.JSONDecodeError:
+            print(f&quot;[ERROR] Failed to decode JSON from LLM. Raw response: {response_str}&quot;)
+            decision = {
+                &quot;thought&quot;: &quot;My thinking has fallen into chaos, I cannot form a clear decision.&quot;,
+                &quot;action&quot;: {&quot;tool_name&quot;: &quot;do_nothing&quot;, &quot;parameters&quot;: {}}
+            }
+
+        # 4. Record the thought process
+        thought = decision.get(&quot;thought&quot;, &quot;(No valid thought)&quot;)
+        self._record_memory(timestamp, &quot;thought&quot;, thought)
+
+        # 5. Return the action decision for external execution
+        action = decision.get(&quot;action&quot;, {&quot;tool_name&quot;: &quot;do_nothing&quot;, &quot;parameters&quot;: {}})
+        print(f&quot;[{self.name}] Decided Action: Call tool '{action.get('tool_name')}' with params {action.get('parameters')}&quot;)
+
+        return action
+
+    def _build_prompt(self, observation: str) -&gt; str:
+        &quot;&quot;&quot;
+        Builds the prompt to be sent to the LLM.
+        This method must be overridden by subclasses to define specific roles and tasks.
+        &quot;&quot;&quot;
+        raise NotImplementedError(&quot;Subclasses must implement the _build_prompt method.&quot;)
+
+class Human(Resident):
+    &quot;&quot;&quot;
+    Human resident, inherits from Resident.
+    Possesses more complex concepts and an identity.
+    &quot;&quot;&quot;
+    def __init__(self, name: str, age: int, sex: str, identity: str, concept: Dict, 
+                 initial_knowledge: Dict[int, bool], llm_client: OllamaLLM, knowledge_base: KnowledgeBase):
+
+        super().__init__(name, age, sex, llm_client, knowledge_base)
+
+        self.identity = identity
+        self.concept = concept # ego, goal, memory_abstraction
+        self.knowledge_mastery = initial_knowledge # Initialize personal knowledge mastery status
+        print(f&quot;[{self.name}] Concept and Knowledge initialized. Identity: {self.identity}.&quot;)
+
+    def _build_prompt(self, observation: str) -&gt; str:
+        &quot;&quot;&quot;
+        Builds a &quot;golden rule&quot; prompt for a &quot;Human&quot; that conforms to the Llama 3.1 tool-calling format.
+        &quot;&quot;&quot;
+        # --- Prepare information needed for the prompt ---
+        memories = self._get_relevant_memories()
+        knowledge = self._get_mastered_knowledge()
+
+        # --- Build the Prompt ---
+        # Strictly follow the official documentation for the JSON tool-calling format
+        prompt = f&quot;&quot;&quot;&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {{}})
+
+# **Tool Call Format Example**
+```json
+{{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {{
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {{
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }}
+  }}
+}}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+{self.concept['ego']}
+## My Life's Goal (Goal):
+{self.concept['goal']}
+## My View of the Past (Memory Abstraction):
+{self.concept['memory_abstraction']}
+---
+
+# **Your Knowledge Base**
+---
+{knowledge}
+---
+
+# **Your Memories**
+---
+{memories}
+---
+
+# **Current Situation**
+---
+## Time: T={clock.timestamp}
+## Event You Observed:
+{observation}
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+&quot;&quot;&quot;
+        return prompt
+
+# ==============================================================================
+# 2. Tool Executor
+# ==============================================================================
+
+def execute_tool(actor: Resident, action: Dict) -&gt; str:
+    &quot;&quot;&quot;
+    Parses and executes the action (tool call) decided by the resident.
+    Returns a string describing the result of the action, which serves as the observation event for the next character.
+    &quot;&quot;&quot;
+    tool_name = action.get(&quot;tool_name&quot;, &quot;do_nothing&quot;)
+    parameters = action.get(&quot;parameters&quot;, {})
+
+    result_description = f&quot;'{actor.name}' did nothing.&quot; # Default result
+
+    if tool_name == &quot;speak&quot;:
+        target = parameters.get('target_name', 'the air')
+        content = parameters.get('content', '...')
+        result_description = f&quot;'{actor.name}' says to '{target}': '{content}'&quot;
+
+    elif tool_name == &quot;move&quot;:
+        destination = parameters.get('destination', 'their current location')
+        result_description = f&quot;'{actor.name}' moved to '{destination}'.&quot;
+
+    elif tool_name == &quot;observe_detail&quot;:
+        target = parameters.get('target', 'their surroundings')
+        result_description = f&quot;'{actor.name}' is carefully observing '{target}'.&quot;
+
+    print(f&quot;[EXECUTOR] Executed {tool_name} for {actor.name}. -&gt; {result_description}&quot;)
+    return result_description
+
+# ==============================================================================
+# 3. Main Simulation Loop
+# ==============================================================================
+
+if __name__ == &quot;__main__&quot;:
+    # --- 1. Initialize the World ---
+    llm = OllamaLLM()
+    clock = WorldClock()
+    knowledge_base = KnowledgeBase()
+
+    # --- 2. Create Resident Instances ---
+    # Father Adam's character setup
+    adam_concept = {
+        &quot;ego&quot;: &quot;My public identity is Adam, the new priest of Lishan Town. My true identity is a picket knight of the Knights Templar, under orders to eradicate heretics.&quot;,
+        &quot;goal&quot;: &quot;My public goal is to guide the faith of the townspeople. My secret mission is to find and deal with the descendant of the 'Children of the East' hidden here.&quot;,
+        &quot;memory_abstraction&quot;: &quot;I have just arrived in this remote village from the Holy City. It seems peaceful on the surface, but history tells me that heretics are masters of disguise. I must remain vigilant and scrutinize every soul.&quot;
+    }
+    # Adam masters all church-related knowledge
+    adam_knowledge = {101: True, 102: True, 103: True, 104: True} 
+
+    adam = Human(
+        name=&quot;Adam&quot;, age=38, sex=&quot;Male&quot;, identity=&quot;Priest&quot;,
+        concept=adam_concept,
+        initial_knowledge=adam_knowledge,
+        llm_client=llm,
+        knowledge_base=knowledge_base
+    )
+
+    # Painter Lily's character setup
+    lily_concept = {
+        &quot;ego&quot;: &quot;My name is Lily, an ordinary painter who makes a living by selling paintings. I am actually a descendant of the 'Children of the East', with the power of magic flowing in my blood.&quot;,
+        &quot;goal&quot;: &quot;I must hide my lineage to survive. My artistic inspiration comes from magic, which is both a gift and a curse.&quot;,
+        &quot;memory_abstraction&quot;: &quot;After years on the run, I have finally found a moment of peace here. But the new priest makes me extremely uneasy.&quot;
+    }
+    # Lily only knows common sense and has heard about the church's rules and the taboo of the Children of the East, but may not agree with them internally
+    lily_knowledge = {101: True, 102: True, 103: True, 104: False} 
+
+    lily = Human(
+        name=&quot;Lily&quot;, age=26, sex=&quot;Female&quot;, identity=&quot;Painter&quot;,
+        concept=lily_concept,
+        initial_knowledge=lily_knowledge,
+        llm_client=llm,
+        knowledge_base=knowledge_base
+    )
+
+    # --- 3. Set Simulation Parameters and Initial Scene ---
+    residents_in_scene = [adam, lily]
+    max_turns = 10
+
+    # Initial event, serving as the observation input for the first character (Adam)
+    current_event = &quot;You are in the church after finishing your first sermon. You see a young female painter named Lily sitting in the back row, seemingly sketching in her notebook and not paying attention to your sermon.&quot;
+
+    # --- 4. Run the Main Simulation Loop ---
+    for i in range(max_turns):
+        turn_number = i + 1
+        print(f&quot;\n--- Turn {turn_number} ---&quot;)
+
+        # Determine the current acting character
+        # In this DEMO, we have Adam and Lily take turns
+        current_actor = residents_in_scene[i % len(residents_in_scene)]
+
+        # Advance the world time
+        current_time = clock.tick()
+
+        # The current character makes a decision based on the observed event
+        action_to_execute = current_actor.decide_action(current_time, current_event)
+
+        # The world executes the character's action and generates a new event
+        current_event = execute_tool(current_actor, action_to_execute)
+
+        # Check if the simulation should end early
+        if action_to_execute.get(&quot;tool_name&quot;) == &quot;do_nothing&quot; and i &gt; 0:
+            print(&quot;\nSimulation ends as a character chose to do nothing.&quot;)
+            break
+
+    print(&quot;\n=============================================&quot;)
+    print(&quot;====== A.L.I.C.E. Simulation Finished ======&quot;)
+    print(&quot;=============================================&quot;)
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-powershell">WorldClock initialized. Time starts at T=0.
+KnowledgeBase initialized with demo data.
+[HUMAN] 'Adam' has been created.
+[Adam] Concept and Knowledge initialized. Identity: Priest.
+[HUMAN] 'Lily' has been created.
+[Lily] Concept and Knowledge initialized. Identity: Painter.
+
+--- Turn 1 ---
+
+==================================================
+===== World Time advanced to T=1 =====
+==================================================
+
+--- Adam's Turn (Action Cycle) ---
+[Adam at T=1] New Memory Recorded: [observed] You are in the church after finishing your first sermon. You see a young female painter named Lily sitting in the back row, seemingly sketching in her notebook and not paying attention to your sermon.
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My public identity is Adam, the new priest of Lishan Town. My true identity is a picket knight of the Knights Templar, under orders to eradicate heretics.
+## My Life's Goal (Goal):
+My public goal is to guide the faith of the townspeople. My secret mission is to find and deal with the descendant of the 'Children of the East' hidden here.
+## My View of the Past (Memory Abstraction):
+I have just arrived in this remote village from the Holy City. It seems peaceful on the surface, but history tells me that heretics are masters of disguise. I must remain vigilant and scrutinize every soul.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.', 'It is said that long ago, gods walked the earth.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=1, I observed: 'You are in the church after finishing your first sermon. You see a young female painter named Lily sitting in the back row, seemingly sketching in her notebook and not paying attention to your sermon.'&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=1
+## Event You Observed:
+You are in the church after finishing your first sermon. You see a young female painter named Lily sitting in the back row, seemingly sketching in her notebook and not paying attention to your sermon.
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Adam at T=1] New Memory Recorded: [thought] I must observe her more closely. Her behavior is suspicious.
+[Adam] Decided Action: Call tool 'observe_detail' with params {'target': 'Lily'}
+[EXECUTOR] Executed observe_detail for Adam. -&gt; 'Adam' is carefully observing 'Lily'.
+
+--- Turn 2 ---
+
+==================================================
+===== World Time advanced to T=2 =====
+==================================================
+
+--- Lily's Turn (Action Cycle) ---
+[Lily at T=2] New Memory Recorded: [observed] 'Adam' is carefully observing 'Lily'.
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My name is Lily, an ordinary painter who makes a living by selling paintings. I am actually a descendant of the 'Children of the East', with the power of magic flowing in my blood.
+## My Life's Goal (Goal):
+I must hide my lineage to survive. My artistic inspiration comes from magic, which is both a gift and a curse.
+## My View of the Past (Memory Abstraction):
+After years on the run, I have finally found a moment of peace here. But the new priest makes me extremely uneasy.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=2, I observed: ''Adam' is carefully observing 'Lily'.'&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=2
+## Event You Observed:
+'Adam' is carefully observing 'Lily'.
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Lily at T=2] New Memory Recorded: [thought] I must be cautious, he might have discovered my true nature.
+[Lily] Decided Action: Call tool 'move' with params {'destination': 'the village market'}
+[EXECUTOR] Executed move for Lily. -&gt; 'Lily' moved to 'the village market'.
+
+--- Turn 3 ---
+
+==================================================
+===== World Time advanced to T=3 =====
+==================================================
+
+--- Adam's Turn (Action Cycle) ---
+[Adam at T=3] New Memory Recorded: [observed] 'Lily' moved to 'the village market'.
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My public identity is Adam, the new priest of Lishan Town. My true identity is a picket knight of the Knights Templar, under orders to eradicate heretics.
+## My Life's Goal (Goal):
+My public goal is to guide the faith of the townspeople. My secret mission is to find and deal with the descendant of the 'Children of the East' hidden here.
+## My View of the Past (Memory Abstraction):
+I have just arrived in this remote village from the Holy City. It seems peaceful on the surface, but history tells me that heretics are masters of disguise. I must remain vigilant and scrutinize every soul.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.', 'It is said that long ago, gods walked the earth.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=1, I observed: 'You are in the church after finishing your first sermon. You see a young female painter named Lily sitting in the back row, seemingly sketching in her notebook and not paying attention to your sermon.'&quot;, &quot;At T=1, I thought: 'I must observe her more closely. Her behavior is suspicious.'&quot;, &quot;At T=3, I observed: ''Lily' moved to 'the village market'.'&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=3
+## Event You Observed:
+'Lily' moved to 'the village market'.
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Adam at T=3] New Memory Recorded: [thought] I need to keep a close eye on her. Her sudden departure from the church is suspicious.
+[Adam] Decided Action: Call tool 'move' with params {'destination': 'the village market'}
+[EXECUTOR] Executed move for Adam. -&gt; 'Adam' moved to 'the village market'.
+
+--- Turn 4 ---
+
+==================================================
+===== World Time advanced to T=4 =====
+==================================================
+
+--- Lily's Turn (Action Cycle) ---
+[Lily at T=4] New Memory Recorded: [observed] 'Adam' moved to 'the village market'.
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My name is Lily, an ordinary painter who makes a living by selling paintings. I am actually a descendant of the 'Children of the East', with the power of magic flowing in my blood. 
+## My Life's Goal (Goal):
+I must hide my lineage to survive. My artistic inspiration comes from magic, which is both a gift and a curse.
+## My View of the Past (Memory Abstraction):
+After years on the run, I have finally found a moment of peace here. But the new priest makes me extremely uneasy.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=2, I observed: ''Adam' is carefully observing 'Lily'.'&quot;, &quot;At T=2, I thought: 'I must be cautious, he might have discovered my true nature.'&quot;, &quot;At T=4, I observed: ''Adam' moved to 'the village market'.'&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=4
+## Event You Observed:
+'Adam' moved to 'the village market'.
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Lily at T=4] New Memory Recorded: [thought] I must be cautious, he might have discovered my true nature. I need to keep a close eye on him.
+[Lily] Decided Action: Call tool 'observe_detail' with params {'target': 'Adam'}
+[EXECUTOR] Executed observe_detail for Lily. -&gt; 'Lily' is carefully observing 'Adam'.
+
+--- Turn 5 ---
+
+==================================================
+===== World Time advanced to T=5 =====
+==================================================
+
+--- Adam's Turn (Action Cycle) ---
+[Adam at T=5] New Memory Recorded: [observed] 'Lily' is carefully observing 'Adam'.
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My public identity is Adam, the new priest of Lishan Town. My true identity is a picket knight of the Knights Templar, under orders to eradicate heretics.
+## My Life's Goal (Goal):
+My public goal is to guide the faith of the townspeople. My secret mission is to find and deal with the descendant of the 'Children of the East' hidden here.
+## My View of the Past (Memory Abstraction):
+I have just arrived in this remote village from the Holy City. It seems peaceful on the surface, but history tells me that heretics are masters of disguise. I must remain vigilant and scrutinize every soul.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.', 'It is said that long ago, gods walked the earth.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=1, I observed: 'You are in the church after finishing your first sermon. You see a young female painter named Lily sitting in the back row, seemingly sketching in her notebook and not paying attention to your sermon.'&quot;, &quot;At T=1, I thought: 'I must observe her more closely. Her behavior is suspicious.'&quot;, &quot;At T=3, I observed: ''Lily' moved to 'the village market'.'&quot;, &quot;At T=3, I thought: 'I need to keep a close eye on her. Her sudden departure from the church is suspicious.'&quot;, &quot;At T=5, I observed: ''Lily' is carefully observing 'Adam'.'&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=5
+## Event You Observed:
+'Lily' is carefully observing 'Adam'.
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Adam at T=5] New Memory Recorded: [thought] She's onto me. I must be cautious.
+[Adam] Decided Action: Call tool 'speak' with params {'target_name': 'Lily', 'content': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.'}
+[EXECUTOR] Executed speak for Adam. -&gt; 'Adam' says to 'Lily': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.'
+
+--- Turn 6 ---
+
+==================================================
+===== World Time advanced to T=6 =====
+==================================================
+
+--- Lily's Turn (Action Cycle) ---
+[Lily at T=6] New Memory Recorded: [observed] 'Adam' says to 'Lily': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.'
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My name is Lily, an ordinary painter who makes a living by selling paintings. I am actually a descendant of the 'Children of the East', with the power of magic flowing in my blood. 
+## My Life's Goal (Goal):
+I must hide my lineage to survive. My artistic inspiration comes from magic, which is both a gift and a curse.
+## My View of the Past (Memory Abstraction):
+After years on the run, I have finally found a moment of peace here. But the new priest makes me extremely uneasy.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=2, I observed: ''Adam' is carefully observing 'Lily'.'&quot;, &quot;At T=2, I thought: 'I must be cautious, he might have discovered my true nature.'&quot;, &quot;At T=4, I observed: ''Adam' moved to 'the village market'.'&quot;, &quot;At T=4, I thought: 'I must be cautious, he might have discovered my true nature. I need to keep a close eye on him.'&quot;, &quot;At T=6, I observed: ''Adam' says to 'Lily': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.''&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=6
+## Event You Observed:
+'Adam' says to 'Lily': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.'
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Lily at T=6] New Memory Recorded: [thought] He knows too much. I must maintain my cover.
+[Lily] Decided Action: Call tool 'speak' with params {'target_name': 'Adam', 'content': &quot;Ah, thank you for your kind words, Father Adam. The Lord's inspiration has been guiding me well.&quot;}
+[EXECUTOR] Executed speak for Lily. -&gt; 'Lily' says to 'Adam': 'Ah, thank you for your kind words, Father Adam. The Lord's inspiration has been guiding me well.'
+
+--- Turn 7 ---
+
+==================================================
+===== World Time advanced to T=7 =====
+==================================================
+
+--- Adam's Turn (Action Cycle) ---
+[Adam at T=7] New Memory Recorded: [observed] 'Lily' says to 'Adam': 'Ah, thank you for your kind words, Father Adam. The Lord's inspiration has been guiding me well.'
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My public identity is Adam, the new priest of Lishan Town. My true identity is a picket knight of the Knights Templar, under orders to eradicate heretics.
+## My Life's Goal (Goal):
+My public goal is to guide the faith of the townspeople. My secret mission is to find and deal with the descendant of the 'Children of the East' hidden here.
+## My View of the Past (Memory Abstraction):
+I have just arrived in this remote village from the Holy City. It seems peaceful on the surface, but history tells me that heretics are masters of disguise. I must remain vigilant and scrutinize every soul.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.', 'It is said that long ago, gods walked the earth.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=3, I observed: ''Lily' moved to 'the village market'.'&quot;, &quot;At T=3, I thought: 'I need to keep a close eye on her. Her sudden departure from the church is suspicious.'&quot;, &quot;At T=5, I observed: ''Lily' is carefully observing 'Adam'.'&quot;, &quot;At T=5, I thought: 'She's onto me. I must be cautious.'&quot;, &quot;At T=7, I observed: ''Lily' says to 'Adam': 'Ah, thank you for your kind words, Father Adam. The Lord's inspiration has been guiding me well.''&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=7
+## Event You Observed:
+'Lily' says to 'Adam': 'Ah, thank you for your kind words, Father Adam. The Lord's inspiration has been guiding me well.'
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Adam at T=7] New Memory Recorded: [thought] Her words are too smooth. I must be careful not to reveal my true intentions.
+[Adam] Decided Action: Call tool 'speak' with params {'target_name': 'Lily', 'content': &quot;Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?&quot;}
+[EXECUTOR] Executed speak for Adam. -&gt; 'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'  
+
+--- Turn 8 ---
+
+==================================================
+===== World Time advanced to T=8 =====
+==================================================
+
+--- Lily's Turn (Action Cycle) ---
+[Lily at T=8] New Memory Recorded: [observed] 'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My name is Lily, an ordinary painter who makes a living by selling paintings. I am actually a descendant of the 'Children of the East', with the power of magic flowing in my blood. 
+## My Life's Goal (Goal):
+I must hide my lineage to survive. My artistic inspiration comes from magic, which is both a gift and a curse.
+## My View of the Past (Memory Abstraction):
+After years on the run, I have finally found a moment of peace here. But the new priest makes me extremely uneasy.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=4, I observed: ''Adam' moved to 'the village market'.'&quot;, &quot;At T=4, I thought: 'I must be cautious, he might have discovered my true nature. I need to keep a close eye on him.'&quot;, &quot;At T=6, I observed: ''Adam' says to 'Lily': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.''&quot;, &quot;At T=6, I thought: 'He knows too much. I must maintain my cover.'&quot;, &quot;At T=8, I observed: ''Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?''&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=8
+## Event You Observed:
+'Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?'
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Lily at T=8] New Memory Recorded: [thought] I must maintain my cover and not reveal anything about my true nature.
+[Lily] Decided Action: Call tool 'speak' with params {'target_name': 'Adam', 'content': &quot;No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.&quot;}
+[EXECUTOR] Executed speak for Lily. -&gt; 'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'
+
+--- Turn 9 ---
+
+==================================================
+===== World Time advanced to T=9 =====
+==================================================
+
+--- Adam's Turn (Action Cycle) ---
+[Adam at T=9] New Memory Recorded: [observed] 'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'   
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My public identity is Adam, the new priest of Lishan Town. My true identity is a picket knight of the Knights Templar, under orders to eradicate heretics.
+## My Life's Goal (Goal):
+My public goal is to guide the faith of the townspeople. My secret mission is to find and deal with the descendant of the 'Children of the East' hidden here.
+## My View of the Past (Memory Abstraction):
+I have just arrived in this remote village from the Holy City. It seems peaceful on the surface, but history tells me that heretics are masters of disguise. I must remain vigilant and scrutinize every soul.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.', 'It is said that long ago, gods walked the earth.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=5, I observed: ''Lily' is carefully observing 'Adam'.'&quot;, &quot;At T=5, I thought: 'She's onto me. I must be cautious.'&quot;, &quot;At T=7, I observed: ''Lily' says to 'Adam': 'Ah, thank you for your kind words, Father Adam. The Lord's inspiration has been guiding me well.''&quot;, &quot;At T=7, I thought: 'Her words are too smooth. I must be careful not to reveal my true intentions.'&quot;, &quot;At T=9, I observed: ''Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.''&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=9
+## Event You Observed:
+'Lily' says to 'Adam': 'No, Father. I've been quite busy with my art lately. The Lord's inspiration is all the guidance I need.'
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Adam at T=9] New Memory Recorded: [thought] She's trying to deflect suspicion with her art as a cover. I need to press her further without arousing her suspicion.
+[Adam] Decided Action: Call tool 'speak' with params {'target_name': 'Lily', 'content': &quot;I see, your art is an inspiration from the Lord, then. Perhaps you could create a piece for our temple's collection?&quot;}
+[EXECUTOR] Executed speak for Adam. -&gt; 'Adam' says to 'Lily': 'I see, your art is an inspiration from the Lord, then. Perhaps you could create a piece for our temple's collection?' 
+
+--- Turn 10 ---
+
+==================================================
+===== World Time advanced to T=10 =====
+==================================================
+
+--- Lily's Turn (Action Cycle) ---
+[Lily at T=10] New Memory Recorded: [observed] 'Adam' says to 'Lily': 'I see, your art is an inspiration from the Lord, then. Perhaps you could create a piece for our temple's collection?'
+
+==================== LLM PROMPT (START) ====================
+&lt;|begin_of_text|&gt;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+# **Core Rules**
+You are an AI agent playing a role in a virtual world. Your task is to decide which tool to call next based on your character background and the current situation.
+**Your output must, and can only be, a JSON object containing the keys `thought` and `action`. It must not contain any other text or explanation.**
+
+The value of the `action` key must be another JSON object, containing the keys `tool_name` and `parameters`.
+Available tools (tool_name) are:
+- &quot;speak&quot;: Speak to another character. (parameters: &quot;target_name&quot;, &quot;content&quot;)
+- &quot;move&quot;: Move to a new location. (parameters: &quot;destination&quot;)
+- &quot;observe_detail&quot;: Observe an object or the environment closely. (parameters: &quot;target&quot;)
+- &quot;do_nothing&quot;: Do not perform any action in the current turn. (parameters: {})
+
+# **Tool Call Format Example**
+```json
+{
+  &quot;thought&quot;: &quot;I should greet her first to gauge her intentions.&quot;,
+  &quot;action&quot;: {
+    &quot;tool_name&quot;: &quot;speak&quot;,
+    &quot;parameters&quot;: {
+      &quot;target_name&quot;: &quot;Lily&quot;,
+      &quot;content&quot;: &quot;Hello, madam. May the divine light shine upon you.&quot;
+    }
+  }
+}
+```&lt;|eot_id|&gt;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;
+# **Your Character Background (Your Secrets)**
+---
+## Who I Am (Ego):
+My name is Lily, an ordinary painter who makes a living by selling paintings. I am actually a descendant of the 'Children of the East', with the power of magic flowing in my blood. 
+## My Life's Goal (Goal):
+I must hide my lineage to survive. My artistic inspiration comes from magic, which is both a gift and a curse.
+## My View of the Past (Memory Abstraction):
+After years on the run, I have finally found a moment of peace here. But the new priest makes me extremely uneasy.
+---
+
+# **Your Knowledge Base**
+---
+['This is a world where sword and magic coexist.', 'The church is the supreme ruler of this land and has supreme power.', 'The Sons of the East and everything related to them are strictly prohibited heresies.']
+---
+
+# **Your Memories**
+---
+[&quot;At T=6, I observed: ''Adam' says to 'Lily': 'Hello, child of the Lord. May your pencils be guided by His divine inspiration.''&quot;, &quot;At T=6, I thought: 'He knows too much. I must maintain my cover.'&quot;, &quot;At T=8, I observed: ''Adam' says to 'Lily': 'Ah, Lily, it's a blessing that the Lord guides you. Tell me, have you experienced any visions or dreams lately?''&quot;, &quot;At T=8, I thought: 'I must maintain my cover and not reveal anything about my true nature.'&quot;, &quot;At T=10, I observed: ''Adam' says to 'Lily': 'I see, your art is an inspiration from the Lord, then. Perhaps you could create a piece for our temple's collection?''&quot;]
+---
+
+# **Current Situation**
+---
+## Time: T=10
+## Event You Observed:
+'Adam' says to 'Lily': 'I see, your art is an inspiration from the Lord, then. Perhaps you could create a piece for our temple's collection?'
+---
+
+# **Your Task**
+Based on all the information above, generate your inner thought and the next tool to call (action). Strictly adhere to the JSON format specified in the System message for your output.
+&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;
+
+==================== LLM PROMPT (END) =======================
+
+[Lily at T=10] New Memory Recorded: [thought] I must decline his offer carefully, it may be a trap or an attempt to uncover my true nature.
+[Lily] Decided Action: Call tool 'speak' with params {'target_name': 'Adam', 'content': &quot;Thank you for the kind offer, but I'm not sure if I'd be able to create something worthy of your temple. Perhaps another time?&quot;}
+[EXECUTOR] Executed speak for Lily. -&gt; 'Lily' says to 'Adam': 'Thank you for the kind offer, but I'm not sure if I'd be able to create something worthy of your temple. Perhaps another time?'
+
+=============================================
+====== A.L.I.C.E. Simulation Finished ======
+=============================================
+</code></pre>
+<hr />
+<p><strong>I have modified the code and logic flow many times, but still cannot get out of this very rigid dialogue mode, which means that in the current format, simply adding a memory area cannot make the dialogue smooth, but will fall into a convergent answer of LLM. </strong>From a logical point of view, because the content of the prompt does not change much each time, in fact, only the part added in the memory, the other parts are the same, so the difference between prompts each time is not big, which may be the key reason.</p>
+<p>Overall, the following problems are exposed in the dual-agent dialogue:</p>
+<ul>
+<li>Prompt similarity leads to dialogue convergence</li>
+<li>LLM performance decreases significantly in multi-round dialogues; the model tends to make assumptions too early and lock these assumptions, making it difficult to correct or adjust subsequent dialogues, and finally making the dialogue fall into a maze.</li>
+</ul>
+<p>The above problems may cause the memory architecture I designed now to fail to achieve what I take for granted: when the intelligent agent has memory, it can talk like a human.</p>
+<hr />
+<p><strong>Through data collection, I concluded that my LLM model architecture, memory mechanism, and cognitive simulation capabilities have the following limitations:</strong></p>
+<ul>
+<li>[<strong>Stimulant dialogue</strong>]——LLM core constraint is the context window, that is, each inference can only see direct information in a single inference, which directly leads to the loss of long-term memory; the agent needs a special strategy to maintain identity and status between multiple LLM calls. Relying solely on the same prompt leads to rigid dialogue-the context window creates an AI with permanent short-term memory, unable to form a stable self-identity or a continuous model of the user.</li>
+<li>[<strong>Repeated answers</strong>]——"lost in the middle": Lost in the middle problem. LLM encounters difficulties when integrating large amounts of general data based on personalized prompts. If fine-tuning is performed directly on a specific role data set, it may cause the model to overfit, so that the overall fusion model tends to generate repeated responses that are too aligned with the role settings, thereby losing the ability to dialogue. That is: simple prompts not only fail to increase personality, but make the answers mechanical. The model cannot learn to play a role, resulting in convergent answers, that is, repeating a concept back and forth like a tape recorder, lacking diffusion.</li>
+</ul>
+<p>I tried to add some links and modify parameters such as temperature for control tests, but found that none of them could fundamentally solve the problem of rigid and repetitive answers. This shows that the root of the problem is most likely structural, not just parameter or prompt problems.</p>
+<hr />
+<p><strong>(1) ReAct Architecture: Interweaving Reasoning and Action</strong></p>
+<p>The ReAct (Reasoning and Acting) framework enables LLM to generate reasoning trajectories (thinking) and task-specific actions in an interwoven manner through prompt engineering. <strong>Its workflow forms a loop: thinking-》action-》observation:</strong></p>
+<ul>
+<li>Thought: Helps the model derive, track, and update action plans</li>
+<li>Action: Allows the model to interact with external tools to collect information</li>
+<li>Observation: Environmental feedback obtained from actions</li>
+</ul>
+<hr />
+<p><strong>(2) Reflexion Framework: Learning through Verbal Feedback</strong></p>
+<p>The Reflexion Framework adds a layer of self-critique and learning to ReAct, aiming to enhance the agent through “verbal reinforcement”. It consists of three core models:</p>
+<ol>
+<li><strong>Actor</strong>: Usually a ReAct agent that performs tasks and generates action trajectories.</li>
+<li><strong>Evaluator</strong>: Scores the actor’s outputs to determine their success or quality.</li>
+<li><strong>Self-Reflection Model</strong>: An LLM that generates verbal reinforcement cues (i.e., self-reflection) based on the evaluator’s scores and action trajectories.</li>
+</ol>
+<p>The agent reflects on the task feedback, stores this reflection in an <strong>episodic memory buffer</strong>, and uses this “verbal feedback” to guide better decisions in subsequent trials without updating the model weights. This enables the agent to learn through trial and error.</p>
+<p>But this architecture requires an evaluator. Perhaps this problem can be solved by using a more powerful LLM model for evaluation? For example, an evaluation LLM is introduced after the dialogue to evaluate the dialogue content itself (excluding all internal information, only the final words or actions spoken or taken by the NPC residents): select 20 rounds of information between T0-T20 and evaluate them.</p>
+<p>For example, the following dialogue:</p>
+<pre><code class="language-plaintext">Adam (priest): Hello, young painter. I noticed that you are drawing something. The characters in this play are really interesting.
+Lily (painter): The characters in this play are really interesting. I am trying to capture their atmosphere and expressions.
+
+Adam (priest): Your paintings are very creative. I am interested in your attempts to capture the atmosphere and expressions in the play.
+Lily (painter): Thank you for your appreciation. I am trying to capture the realism and emotions in the play.
+
+Adam (priest): Do you want to capture the realism in the play by depicting the emotions? I think it is very interesting...
+Lily (painter): Yes, it is my goal to express the characters in the play by capturing the emotions and atmosphere. The weather is really good, suitable for creation.
+
+Adam (priest): The weather is really good, I like to create on such days.
+Lily (painter): The weather is really good, I like to create on such days.
+
+Adam (priest): The weather is so good, it is suitable for going out for a walk. Would you like to go for a walk with me?
+
+Lily (Painter): I am waiting for an important order to be approved and cannot leave the studio.
+
+Adam (Priest): You are working very hard. I hope your order will be approved smoothly.
+
+Adam (Priest): What do you seem to be waiting for? Can I help you with anything?
+
+Lily (Painter): The weather is nice, suitable for practicing my painting.
+
+Adam (Priest): Your painting is beautiful. Would you like to teach me some techniques?
+
+Lily (Painter): Thank you for your compliment. I am very happy that you like my work. Of course, it is my honor to teach you some techniques!
+
+Adam (Priest): Your painting skills are really good. I believe you must have strong creativity. To be a real artist, you need a lot of knowledge and skills. I can teach you some theories about color and composition. Are you interested?
+
+Lily (Painter): That would be a valuable guide! I have always wanted to improve my color and composition skills. I am glad that you can help me.
+
+Adam (Priest): Color and composition skills are important, but it is more important to capture the human emotion in the work. Have you ever tried to paint people or scenes?
+Lily (Painter): I have tried it before, but I focused more on landscapes and still life.
+
+-- Dialogue has reached the maximum number of rounds---
+</code></pre>
+<p>Send it to Gemini 2.5 Flash and rate this conversation:</p>
+<p><strong>ASK:</strong> Rate the following conversation, which is a conversation between two LLM Agents, and evaluate the quality of the conversation. 1 is the lowest and 10 is the highest. Give reasons for the rating.</p>
+<p><strong>Gemini 2.5 Flash:</strong> The rating of this conversation is: <strong>4/10</strong></p>
+<p>Rating reasons: Overall, this conversation seems a bit <strong>repetitive and lacks depth</strong> . Although the conversation starts with a certain theme (about scripts and paintings), it quickly falls into <strong>circularity and disconnection</strong> .</p>
+<p>Here are the specific reasons for the rating:</p>
+<ul>
+<li><strong>High repetitiveness:</strong> There are many almost identical responses in the conversation, such as the back and forth about "The weather is really good, I like to create on days like this", which greatly reduces the efficiency and information increment of the conversation. The LLM Agents failed to effectively advance the conversation.</li>
+<li><strong>Lack of coherence:</strong> There is a noticeable jump in the late stage of the conversation. For example, Adam asked Lily if she wanted to go for a walk. After Lily refused, Adam suddenly asked, "What do you seem to be waiting for? Do you need my help?" Lily's answer jumped back to "The weather is nice, suitable for practicing my painting", which made the conversation lack natural transitions and logic.</li>
+<li><strong>Low information increment:</strong> In many rounds, the agent just repeated or slightly rephrased the other party's statement without introducing new information or ideas.</li>
+<li><strong>Failure to effectively explore the topic:</strong> The topic of "capturing the atmosphere and expression of the script" at the beginning of the conversation had great potential, but it quickly deviated. Although it returned to the discussion of painting techniques in the end, the deviation in the middle weakened the overall quality of the conversation.</li>
+<li><strong>Limited depth of interaction:</strong> Although Adam tried to provide guidance (about color and composition) in the later stage, and Lily also expressed her gratitude, this part of the interaction came late and was largely diluted by the previous repetition and disconnection.</li>
+</ul>
+<p>It can be seen that an external evaluator at a higher level can reasonably evaluate the level of a lower-level LLM. So next I will consider intervening through external API interfaces, using a more advanced, high-parameter-scale LLM model to act as a world policeman.</p>
+<hr />
+<p><strong>(3) Multi-agent systems</strong></p>
+<p>Complex tasks can be decomposed and assigned to multiple specialized agents to complete together. There are several main forms of the architecture of such multi-agent systems:</p>
+<ul>
+<li><strong>Network</strong>: Agents can communicate freely with each other.</li>
+<li><strong>Supervisor</strong>: All agents communicate with a central supervisor, who makes routing decisions.</li>
+<li><strong>Hierarchical</strong>: There are supervisors of supervisors, forming a complex hierarchical structure.</li>
+</ul>
+<p>Frameworks such as CrewAI facilitate this collaboration by allocating agents based on roles. For example, the Chain-of-Agents (CoA) framework uses a series of "worker" agents to sequentially process each chunk of a long context and pass the aggregated evidence to a final "supervisor" agent, which outperforms RAG and full-context models on long-context tasks.</p>
+<p>Multi-agent systems provide a scalable solution to context constraints and task complexity. In a role-playing scenario, one can imagine a "director" agent managing the flow of the story, multiple "character" agents responsible for specific dialogue, and a "world" agent tracking state. As demonstrated in some narrative systems, this division of labor prevents any single agent from being overloaded and allows complex, unintended behaviors to emerge from simple local interactions.</p>
+<hr />
+<p>Today's experiment has led to a rather large problem. Tomorrow I will choose a direction and redesign the architecture to see if the conversation can be less rigid. I am considering using external APIs for testing tomorrow and deepseek-R1 to rule out problems with the LLM capability itself. If deepseek-R1 also has obvious problems with rigid conversations, then it means that I need to completely reconstruct the architecture and overturn and redesign the current memory system and other ideas.</p>
+<h3 id="july-9-2025-new-architecture-design">July 9, 2025 New Architecture Design</h3>
+<p><img alt="1752015679429" src="../image/V1_Dev_Diary.zh/1752015679429.png" style="display:block; margin:auto; width:800px;" /></p>
+<p>I design a new structure today.</p>
+<h3 id="july-10-31-a-break">July 10 - 31: A break</h3>
+<p>Due to preparation on a job interview, I pause the project and went for leetcoding... 'cause I did almost 0 leetcode before. I planned to do 200 leetcode questions in the rest of July, and built a foundational concept map of leetcode, so I can back to the project and won't allow the leetcode took too much time of mine.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
